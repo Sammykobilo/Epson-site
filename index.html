@@ -1,0 +1,922 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f6f4ef">
+  <meta name="description" content="Explore thoughtfully designed American house plans. Compare layouts, choose your plan package, and request custom modifications.">
+  <title>Fieldhouse Plans — Find a home that feels like yours</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --ink: #22251f;
+      --muted: #74766f;
+      --paper: #f6f4ef;
+      --white: #fffefa;
+      --line: #e6e3db;
+      --olive: #626d51;
+      --olive-dark: #424c37;
+      --clay: #b78367;
+      --sand: #e9e4d9;
+      --serif: "Playfair Display", Georgia, serif;
+      --sans: "DM Sans", Arial, sans-serif;
+      --display: "Manrope", Arial, sans-serif;
+      --shadow: 0 24px 70px rgba(32, 34, 29, .14);
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { margin: 0; color: var(--ink); background: var(--paper); font: 15px/1.55 var(--sans); }
+    body.locked { overflow: hidden; }
+    button, input, select, textarea { font: inherit; }
+    button, a { -webkit-tap-highlight-color: transparent; }
+    button { color: inherit; }
+    a { color: inherit; text-decoration: none; }
+    img { display: block; width: 100%; object-fit: cover; }
+    .wrap { width: min(1280px, calc(100% - 64px)); margin: 0 auto; }
+    .eyebrow { color: var(--olive); font-size: 11px; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; }
+    .serif { font-family: var(--serif); font-weight: 500; letter-spacing: -.035em; }
+    .announcement { min-height: 35px; display: grid; place-items: center; background: var(--olive-dark); color: #f5f2e9; font-size: 11px; letter-spacing: .035em; }
+    .announcement b { font-weight: 600; color: #e6d4b7; }
+    .header { position: relative; z-index: 5; background: var(--paper); border-bottom: 1px solid rgba(34,37,31,.08); }
+    .header-inner { height: 82px; display: flex; align-items: center; justify-content: space-between; gap: 28px; }
+    .brand { display: inline-flex; align-items: center; gap: 10px; min-width: 205px; }
+    .brand-mark { width: 35px; height: 35px; display: grid; place-items: center; border: 1px solid var(--olive); color: var(--olive); border-radius: 50%; }
+    .brand-mark svg { width: 21px; height: 21px; }
+    .brand-name { font: 700 16px/1 var(--display); letter-spacing: -.055em; }
+    .brand-name small { display: block; padding-top: 4px; color: var(--muted); font: 600 8px/1 var(--sans); letter-spacing: .2em; text-transform: uppercase; }
+    .nav { display: flex; align-items: center; gap: 32px; }
+    .nav a { font-size: 12px; font-weight: 600; transition: color .2s; }
+    .nav a:hover { color: var(--olive); }
+    .header-actions { display: flex; align-items: center; gap: 20px; }
+    .icon-button { width: 38px; height: 38px; display: grid; place-items: center; position: relative; padding: 0; border: 0; background: none; cursor: pointer; }
+    .icon-button svg { width: 19px; height: 19px; stroke-width: 1.6; }
+    .cart-count { position: absolute; top: 0; right: -2px; width: 16px; height: 16px; display: grid; place-items: center; border-radius: 50%; background: var(--olive); color: white; font-size: 9px; }
+    .button { min-height: 46px; display: inline-flex; align-items: center; justify-content: center; gap: 10px; padding: 0 20px; border: 1px solid transparent; border-radius: 3px; background: var(--olive); color: white; font-size: 12px; font-weight: 700; cursor: pointer; transition: background .2s, transform .2s, border-color .2s; }
+    .button:hover { background: var(--olive-dark); transform: translateY(-1px); }
+    .button svg { width: 15px; height: 15px; }
+    .button.secondary { color: var(--ink); background: transparent; border-color: rgba(34,37,31,.35); }
+    .button.secondary:hover { border-color: var(--ink); background: rgba(255,255,255,.4); }
+    .button.light { background: var(--white); color: var(--ink); }
+    .button.light:hover { background: #f1ede4; }
+    .button.small { min-height: 39px; padding: 0 15px; font-size: 11px; }
+    .mobile-menu { display: none; }
+
+    .hero { min-height: 590px; position: relative; display: flex; align-items: center; overflow: hidden; background: #d2d0c7; }
+    .hero::before { content: ""; position: absolute; inset: 0; background-image: linear-gradient(90deg, rgba(25,29,24,.67) 0%, rgba(25,29,24,.43) 44%, rgba(25,29,24,.04) 100%), url("https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=2200&q=85"); background-size: cover; background-position: center 55%; }
+    .hero-content { position: relative; z-index: 1; width: min(1280px, calc(100% - 64px)); margin: 0 auto; padding: 76px 0 108px; color: white; }
+    .hero .eyebrow { color: #e5d6bd; }
+    .hero h1 { max-width: 650px; margin: 19px 0 18px; font: 500 clamp(48px, 6vw, 78px)/1.06 var(--serif); letter-spacing: -.045em; }
+    .hero p { max-width: 480px; margin: 0 0 29px; color: rgba(255,255,255,.84); font-size: 15px; line-height: 1.8; }
+    .hero-actions { display: flex; flex-wrap: wrap; gap: 11px; }
+    .hero-note { display: flex; align-items: center; gap: 9px; margin-top: 47px; color: rgba(255,255,255,.86); font-size: 10px; letter-spacing: .04em; }
+    .hero-note svg { width: 15px; height: 15px; color: #d7c5a3; }
+    .hero-stat { position: absolute; right: 0; bottom: 50px; display: flex; align-items: center; gap: 22px; padding: 23px 30px; background: var(--paper); color: var(--ink); }
+    .hero-stat strong { font: 600 28px/1 var(--serif); }
+    .hero-stat span { display: block; max-width: 130px; padding-left: 20px; border-left: 1px solid var(--line); color: var(--muted); font-size: 10px; line-height: 1.5; }
+    .search-section { position: relative; z-index: 2; margin-top: -48px; }
+    .search-panel { padding: 25px 27px 21px; border: 1px solid rgba(32,34,29,.08); background: var(--white); box-shadow: 0 13px 38px rgba(32,34,29,.1); }
+    .search-heading { display: flex; align-items: baseline; justify-content: space-between; gap: 14px; margin-bottom: 15px; }
+    .search-heading h2 { margin: 0; font: 500 22px/1.2 var(--serif); }
+    .search-heading span { color: var(--muted); font-size: 10px; }
+    .search-grid { display: grid; grid-template-columns: repeat(5, minmax(100px, 1fr)) 150px; gap: 9px; }
+    .field label { display: block; margin-bottom: 5px; color: var(--muted); font-size: 9px; font-weight: 700; letter-spacing: .09em; text-transform: uppercase; }
+    .field select, .field input, .field textarea { width: 100%; min-height: 43px; padding: 0 11px; border: 1px solid var(--line); border-radius: 2px; outline: 0; background: #fff; color: var(--ink); font-size: 11px; }
+    .field select:focus, .field input:focus, .field textarea:focus { border-color: var(--olive); box-shadow: 0 0 0 2px rgba(98,109,81,.12); }
+    .field select { appearance: none; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='none' viewBox='0 0 12 12'%3E%3Cpath d='m2.5 4.5 3.5 3 3.5-3' stroke='%2374766f' stroke-width='1.2'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 11px center; padding-right: 28px; }
+    .search-submit { align-self: end; min-height: 43px; }
+    .search-more { margin-top: 12px; padding: 0; border: 0; background: none; color: var(--olive-dark); font-size: 10px; font-weight: 700; cursor: pointer; }
+    .extra-search { display: none; grid-template-columns: repeat(5, 1fr); gap: 9px; margin-top: 14px; padding-top: 14px; border-top: 1px solid var(--line); }
+    .extra-search.open { display: grid; }
+
+    section { scroll-margin-top: 30px; }
+    .section { padding: 94px 0; }
+    .section-head { display: flex; align-items: end; justify-content: space-between; gap: 24px; margin-bottom: 28px; }
+    .section-head h2 { margin: 8px 0 0; font: 500 clamp(32px, 4vw, 46px)/1.14 var(--serif); letter-spacing: -.035em; }
+    .section-head p { max-width: 390px; margin: 0; color: var(--muted); font-size: 12px; line-height: 1.8; }
+    .text-link { display: inline-flex; align-items: center; gap: 9px; color: var(--olive-dark); font-size: 11px; font-weight: 700; white-space: nowrap; }
+    .text-link svg { width: 14px; height: 14px; transition: transform .2s; }
+    .text-link:hover svg { transform: translateX(3px); }
+    .category-grid { display: grid; grid-template-columns: repeat(6, 1fr); gap: 13px; }
+    .category-card { position: relative; height: 190px; overflow: hidden; background: #d5d2c8; cursor: pointer; }
+    .category-card img { height: 100%; transition: transform .45s; }
+    .category-card:hover img { transform: scale(1.05); }
+    .category-card::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, transparent 25%, rgba(18,21,17,.68)); }
+    .category-label { position: absolute; z-index: 1; bottom: 14px; left: 14px; right: 10px; display: flex; align-items: end; justify-content: space-between; color: white; }
+    .category-label strong { font: 500 19px/1.1 var(--serif); }
+    .category-label span { font-size: 9px; opacity: .85; }
+    .category-card:nth-child(n+7) { display: none; }
+    .categories-more { display: block; margin: 20px auto 0; }
+    .plans-section { padding: 86px 0 96px; background: #eeece5; }
+    .plan-tools { display: flex; align-items: center; justify-content: space-between; gap: 16px; margin: 28px 0 19px; }
+    .result-count { color: var(--muted); font-size: 11px; }
+    .sort-wrap { display: flex; align-items: center; gap: 9px; color: var(--muted); font-size: 10px; }
+    .sort-wrap select { height: 37px; padding: 0 30px 0 11px; border: 1px solid #dcd9d0; border-radius: 2px; background-color: var(--white); color: var(--ink); font-size: 10px; }
+    .active-filters { display: flex; flex-wrap: wrap; gap: 7px; margin: 0 0 17px; }
+    .filter-chip { display: none; align-items: center; gap: 6px; padding: 5px 9px; border: 1px solid #d1cec5; border-radius: 20px; color: var(--olive-dark); font-size: 9px; cursor: pointer; }
+    .filter-chip.visible { display: inline-flex; }
+    .filter-chip svg { width: 11px; height: 11px; }
+    .plan-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; }
+    .plan-card { min-width: 0; background: var(--white); }
+    .plan-image { height: 235px; position: relative; overflow: hidden; background: #d9d7ce; cursor: pointer; }
+    .plan-image img { height: 100%; transition: transform .45s; }
+    .plan-card:hover .plan-image img { transform: scale(1.035); }
+    .plan-badge { position: absolute; top: 13px; left: 13px; padding: 6px 9px; background: rgba(255,254,250,.94); font-size: 8px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; }
+    .heart { position: absolute; top: 11px; right: 11px; width: 34px; height: 34px; display: grid; place-items: center; border: 0; border-radius: 50%; background: rgba(255,254,250,.95); cursor: pointer; }
+    .heart svg { width: 17px; height: 17px; stroke: var(--ink); fill: transparent; stroke-width: 1.6; }
+    .heart.saved svg { fill: #ac715c; stroke: #ac715c; }
+    .plan-body { padding: 17px 18px 16px; }
+    .plan-kicker { display: flex; align-items: center; justify-content: space-between; color: var(--muted); font-size: 9px; letter-spacing: .04em; }
+    .plan-body h3 { margin: 8px 0 12px; font: 500 23px/1.1 var(--serif); letter-spacing: -.02em; }
+    .plan-specs { display: flex; flex-wrap: wrap; gap: 0; padding: 11px 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+    .spec { flex: 1; min-width: 54px; padding: 0 7px; border-right: 1px solid var(--line); }
+    .spec:first-child { padding-left: 0; }
+    .spec:last-child { border-right: 0; }
+    .spec b { display: block; font: 600 13px/1.3 var(--display); }
+    .spec span { display: block; margin-top: 1px; color: var(--muted); font-size: 8px; }
+    .plan-bottom { display: flex; align-items: center; justify-content: space-between; gap: 10px; padding-top: 14px; }
+    .price-label { display: block; color: var(--muted); font-size: 8px; }
+    .price { font: 700 17px/1.3 var(--display); }
+    .view-plan { min-height: 36px; padding: 0 12px; font-size: 10px; }
+    .empty-results { display: none; grid-column: 1/-1; padding: 55px 20px; text-align: center; }
+    .empty-results.show { display: block; }
+    .empty-results h3 { font: 500 29px var(--serif); }
+    .empty-results p { color: var(--muted); font-size: 12px; }
+    .trust-strip { padding: 23px 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); background: var(--white); }
+    .trust-inner { display: grid; grid-template-columns: repeat(4,1fr); gap: 18px; }
+    .trust-item { display: flex; align-items: center; gap: 12px; }
+    .trust-icon { width: 35px; height: 35px; display: grid; place-items: center; flex: 0 0 35px; border: 1px solid var(--line); border-radius: 50%; color: var(--olive); }
+    .trust-icon svg { width: 17px; height: 17px; stroke-width: 1.5; }
+    .trust-item b { display: block; font-size: 10px; }
+    .trust-item span { display: block; color: var(--muted); font-size: 9px; }
+    .feature-band { display: grid; grid-template-columns: 1fr 1fr; min-height: 465px; background: #e5e1d8; }
+    .feature-image { min-height: 400px; overflow: hidden; }
+    .feature-image img { height: 100%; }
+    .feature-copy { display: flex; flex-direction: column; align-items: flex-start; justify-content: center; padding: 65px clamp(35px, 7vw, 100px); }
+    .feature-copy h2 { max-width: 480px; margin: 11px 0 15px; font: 500 clamp(35px,4vw,50px)/1.1 var(--serif); letter-spacing: -.035em; }
+    .feature-copy p { max-width: 445px; margin: 0 0 25px; color: #66685f; font-size: 12px; line-height: 1.9; }
+    .feature-points { display: grid; grid-template-columns: 1fr 1fr; gap: 11px 20px; margin: 0 0 26px; padding: 0; list-style: none; }
+    .feature-points li { display: flex; align-items: center; gap: 8px; font-size: 10px; }
+    .feature-points svg { width: 14px; height: 14px; color: var(--olive); }
+    .steps-section { padding: 94px 0; background: var(--white); }
+    .steps-grid { display: grid; grid-template-columns: repeat(4,1fr); margin-top: 38px; border-top: 1px solid var(--line); }
+    .step { position: relative; padding: 26px 24px 0 0; }
+    .step:not(:last-child)::after { content: ""; position: absolute; top: -4px; right: 18px; width: 7px; height: 7px; border-radius: 50%; background: var(--olive); }
+    .step-number { color: #a7a99f; font: 500 27px var(--serif); }
+    .step h3 { margin: 16px 0 7px; font: 500 21px var(--serif); }
+    .step p { max-width: 220px; margin: 0; color: var(--muted); font-size: 10px; line-height: 1.8; }
+    .modification { position: relative; display: grid; grid-template-columns: 1fr 1fr; min-height: 360px; overflow: hidden; background: var(--olive-dark); color: white; }
+    .modification-copy { display: flex; flex-direction: column; justify-content: center; align-items: flex-start; padding: 60px clamp(32px,7vw,98px); }
+    .modification .eyebrow { color: #d1c3a8; }
+    .modification h2 { max-width: 450px; margin: 10px 0 14px; font: 500 clamp(35px,4vw,48px)/1.12 var(--serif); }
+    .modification p { max-width: 460px; margin: 0 0 24px; color: rgba(255,255,255,.72); font-size: 11px; line-height: 1.9; }
+    .modification-image { min-height: 360px; background: linear-gradient(90deg, var(--olive-dark), transparent 40%), url("https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1200&q=80") center/cover; }
+    .resources { padding: 90px 0; }
+    .resource-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 19px; margin-top: 25px; }
+    .resource-card { background: var(--white); }
+    .resource-card img { height: 190px; }
+    .resource-content { padding: 18px; }
+    .resource-content .eyebrow { font-size: 8px; }
+    .resource-content h3 { margin: 9px 0 13px; font: 500 21px/1.25 var(--serif); }
+    .resource-content a { font-size: 10px; }
+    .pricing-section { padding: 90px 0; background: var(--white); }
+    .pricing-cards { display: grid; grid-template-columns: repeat(4,1fr); gap: 12px; margin-top: 27px; }
+    .price-tier { position: relative; min-height: 190px; padding: 22px 20px; border: 1px solid var(--line); background: var(--paper); }
+    .price-tier.featured { border-color: var(--olive); background: #f0efe7; }
+    .price-tier .eyebrow { font-size: 8px; }
+    .price-tier h3 { margin: 9px 0 4px; font: 500 23px var(--serif); }
+    .price-tier strong { display: block; font: 700 19px var(--display); }
+    .price-tier p { margin: 9px 0 0; color: var(--muted); font-size: 9px; line-height: 1.65; }
+    .package-table-wrap { margin-top: 35px; overflow-x: auto; }
+    .package-table { width: 100%; border-collapse: collapse; background: var(--paper); text-align: left; }
+    .package-table th, .package-table td { padding: 13px 16px; border-bottom: 1px solid var(--line); font-size: 10px; }
+    .package-table th { color: var(--muted); font-size: 9px; letter-spacing: .08em; text-transform: uppercase; }
+    .package-table td:first-child { font-weight: 700; }
+    .package-table td:not(:first-child), .package-table th:not(:first-child) { text-align: center; }
+    .package-table .yes { color: var(--olive-dark); font-weight: 700; }
+    .pricing-note { margin: 12px 0 0; color: var(--muted); font-size: 9px; }
+    .about-section { display: grid; grid-template-columns: 1fr 1fr; background: #e9e5dc; }
+    .about-copy { display: flex; flex-direction: column; align-items: flex-start; justify-content: center; padding: 70px clamp(32px,7vw,100px); }
+    .about-copy h2 { max-width: 470px; margin: 9px 0 15px; font: 500 clamp(35px,4vw,49px)/1.12 var(--serif); letter-spacing: -.035em; }
+    .about-copy p { max-width: 465px; margin: 0 0 12px; color: #66685f; font-size: 11px; line-height: 1.9; }
+    .about-image { min-height: 410px; background: url("https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=1200&q=80") center/cover; }
+    .faq-section { padding: 90px 0; background: #eeece5; }
+    .faq-grid { display: grid; grid-template-columns: 1fr 1.45fr; gap: 65px; align-items: start; }
+    .faq-intro h2 { margin: 8px 0 12px; font: 500 42px/1.1 var(--serif); }
+    .faq-intro p { max-width: 300px; color: var(--muted); font-size: 11px; line-height: 1.8; }
+    .faq-list details { border-top: 1px solid #d8d5cc; }
+    .faq-list details:last-child { border-bottom: 1px solid #d8d5cc; }
+    .faq-list summary { position: relative; padding: 17px 28px 17px 0; font-size: 11px; font-weight: 700; cursor: pointer; list-style: none; }
+    .faq-list summary::-webkit-details-marker { display: none; }
+    .faq-list summary::after { content: "+"; position: absolute; right: 1px; top: 13px; color: var(--olive); font: 400 21px var(--sans); }
+    .faq-list details[open] summary::after { content: "−"; }
+    .faq-list details p { max-width: 610px; margin: -2px 0 17px; color: var(--muted); font-size: 10px; line-height: 1.8; }
+    .disclaimer { padding: 24px 0; background: #ebe8e0; }
+    .disclaimer-inner { display: grid; grid-template-columns: 150px 1fr; gap: 28px; align-items: start; }
+    .disclaimer h3 { margin: 0; font: 500 19px var(--serif); }
+    .disclaimer p { max-width: 900px; margin: 0; color: #66685f; font-size: 10px; line-height: 1.8; }
+    .footer { padding: 53px 0 22px; background: #22261f; color: #f3f0e8; }
+    .footer-grid { display: grid; grid-template-columns: 1.5fr 1fr 1fr 1.25fr; gap: 35px; padding-bottom: 43px; }
+    .footer .brand { margin-bottom: 16px; }
+    .footer .brand-mark { border-color: #c2c6b9; color: #d2d5c9; }
+    .footer .brand-name small { color: #a7aa9e; }
+    .footer-about { max-width: 240px; color: #b6b8ad; font-size: 10px; line-height: 1.8; }
+    .footer h4 { margin: 0 0 15px; color: #fff; font-size: 10px; letter-spacing: .08em; text-transform: uppercase; }
+    .footer-links { display: grid; gap: 10px; color: #b6b8ad; font-size: 10px; }
+    .footer-links a:hover { color: white; }
+    .footer-bottom { display: flex; justify-content: space-between; gap: 15px; padding-top: 17px; border-top: 1px solid rgba(255,255,255,.14); color: #96998e; font-size: 9px; }
+    .footer-bottom a { margin-left: 17px; }
+
+    .overlay { position: fixed; z-index: 20; inset: 0; display: none; align-items: center; justify-content: center; padding: 24px; background: rgba(20,22,18,.54); backdrop-filter: blur(3px); }
+    .overlay.open { display: flex; }
+    .dialog { position: relative; width: min(1010px, 100%); max-height: min(90vh, 900px); overflow: auto; background: var(--paper); box-shadow: var(--shadow); }
+    .close-button { position: absolute; z-index: 2; top: 13px; right: 13px; width: 35px; height: 35px; display: grid; place-items: center; border: 0; border-radius: 50%; background: var(--white); cursor: pointer; }
+    .close-button svg { width: 17px; height: 17px; }
+    .detail-layout { display: grid; grid-template-columns: 1.1fr .9fr; }
+    .detail-gallery { background: #dedbd2; }
+    .detail-hero-image { height: 390px; }
+    .detail-thumbs { display: grid; grid-template-columns: repeat(3,1fr); gap: 3px; }
+    .detail-thumbs img { height: 115px; cursor: pointer; opacity: .82; }
+    .detail-thumbs img:hover { opacity: 1; }
+    .detail-content { padding: 37px 32px; }
+    .detail-content h2 { margin: 8px 0; font: 500 35px/1.1 var(--serif); }
+    .detail-id { color: var(--muted); font-size: 10px; }
+    .detail-content .plan-specs { margin: 17px 0; }
+    .package-list { display: grid; gap: 8px; margin: 10px 0 16px; }
+    .package-option { display: flex; align-items: flex-start; gap: 9px; padding: 10px; border: 1px solid var(--line); background: var(--white); cursor: pointer; }
+    .package-option.selected { border-color: var(--olive); box-shadow: 0 0 0 1px var(--olive); }
+    .package-option input { accent-color: var(--olive); margin-top: 3px; }
+    .package-info { flex: 1; }
+    .package-info b { display: block; font-size: 10px; }
+    .package-info span { display: block; margin-top: 2px; color: var(--muted); font-size: 8px; line-height: 1.45; }
+    .package-price { font-size: 11px; font-weight: 700; white-space: nowrap; }
+    .option-title { margin: 17px 0 9px; font-size: 10px; font-weight: 700; }
+    .upgrade-list { display: grid; gap: 8px; }
+    .upgrade { display: flex; align-items: center; justify-content: space-between; color: #53564e; font-size: 9px; }
+    .upgrade label { display: flex; align-items: center; gap: 7px; cursor: pointer; }
+    .upgrade input { accent-color: var(--olive); }
+    .upgrade span { color: var(--olive-dark); font-weight: 700; }
+    .detail-total { display: flex; align-items: center; justify-content: space-between; margin: 19px 0 11px; padding-top: 13px; border-top: 1px solid var(--line); font-size: 10px; }
+    .detail-total strong { font: 700 20px var(--display); }
+    .detail-buy { width: 100%; }
+    .license-note { margin: 10px 0 0; color: var(--muted); font-size: 8px; text-align: center; }
+    .drawer { position: fixed; z-index: 21; top: 0; right: 0; bottom: 0; width: min(420px, 100%); display: flex; flex-direction: column; padding: 25px; background: var(--paper); box-shadow: var(--shadow); transform: translateX(105%); transition: transform .25s ease; }
+    .drawer.open { transform: translateX(0); }
+    .drawer-top { display: flex; align-items: center; justify-content: space-between; padding-bottom: 17px; border-bottom: 1px solid var(--line); }
+    .drawer-top h2 { margin: 0; font: 500 28px var(--serif); }
+    .drawer-items { flex: 1; overflow: auto; }
+    .cart-item { display: grid; grid-template-columns: 75px 1fr auto; gap: 12px; padding: 16px 0; border-bottom: 1px solid var(--line); }
+    .cart-item img { width: 75px; height: 65px; }
+    .cart-item h3 { margin: 1px 0 3px; font: 500 16px var(--serif); }
+    .cart-item p { margin: 0; color: var(--muted); font-size: 9px; }
+    .cart-item strong { font-size: 11px; }
+    .remove-item { margin-top: 6px; padding: 0; border: 0; background: none; color: var(--muted); font-size: 9px; text-decoration: underline; cursor: pointer; }
+    .cart-empty { padding: 45px 5px; color: var(--muted); font-size: 12px; text-align: center; }
+    .cart-summary { padding-top: 17px; border-top: 1px solid var(--line); }
+    .cart-total { display: flex; justify-content: space-between; margin-bottom: 15px; font-size: 12px; }
+    .cart-summary .button { width: 100%; }
+    .cart-footnote { margin: 10px 0 0; color: var(--muted); font-size: 8px; text-align: center; }
+    .form-dialog { width: min(580px, 100%); padding: 34px; }
+    .form-dialog h2 { margin: 8px 0 9px; font: 500 36px/1.1 var(--serif); }
+    .form-dialog > p { margin: 0 0 22px; color: var(--muted); font-size: 11px; line-height: 1.7; }
+    .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 13px; }
+    .form-grid .full { grid-column: 1/-1; }
+    .field textarea { min-height: 92px; resize: vertical; padding: 10px; }
+    .form-submit { margin-top: 17px; }
+    .toast { position: fixed; z-index: 30; right: 23px; bottom: 22px; max-width: calc(100% - 46px); padding: 13px 18px; background: var(--olive-dark); color: white; box-shadow: var(--shadow); font-size: 11px; opacity: 0; pointer-events: none; transform: translateY(8px); transition: .2s; }
+    .toast.show { opacity: 1; transform: translateY(0); }
+    .scrim { position: fixed; z-index: 19; inset: 0; display: none; background: rgba(20,22,18,.48); }
+    .scrim.open { display: block; }
+    .mobile-buy { display: none; }
+
+    @media (max-width: 1000px) {
+      .nav { gap: 18px; }
+      .brand { min-width: auto; }
+      .search-grid { grid-template-columns: repeat(3,1fr); }
+      .search-submit { align-self: end; }
+      .category-grid { grid-template-columns: repeat(4,1fr); }
+      .category-card:nth-child(n+7) { display: block; }
+      .category-card:nth-child(n+9) { display: none; }
+      .plan-grid { gap: 14px; }
+      .plan-image { height: 195px; }
+      .plan-body { padding: 14px; }
+    }
+    @media (max-width: 720px) {
+      .wrap { width: min(100% - 36px, 560px); }
+      .announcement { min-height: 31px; font-size: 9px; }
+      .header-inner { height: 67px; }
+      .header-actions { gap: 8px; }
+      .header-actions .button { display: none; }
+      .nav { position: absolute; top: 66px; left: 0; right: 0; display: none; flex-direction: column; align-items: stretch; gap: 0; padding: 7px 18px 15px; border-bottom: 1px solid var(--line); background: var(--paper); }
+      .nav.open { display: flex; }
+      .nav a { padding: 11px 0; border-bottom: 1px solid var(--line); }
+      .mobile-menu { display: grid; }
+      .brand-mark { width: 31px; height: 31px; }
+      .hero { min-height: 570px; align-items: start; }
+      .hero::before { background-image: linear-gradient(90deg, rgba(25,29,24,.68), rgba(25,29,24,.2)), url("https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1100&q=80"); background-position: 56% center; }
+      .hero-content { width: calc(100% - 42px); padding: 64px 0 100px; }
+      .hero h1 { max-width: 440px; font-size: clamp(48px, 12vw, 64px); }
+      .hero p { max-width: 390px; font-size: 13px; }
+      .hero-note { margin-top: 30px; font-size: 9px; }
+      .hero-stat { bottom: 38px; padding: 14px 18px; gap: 12px; }
+      .hero-stat strong { font-size: 23px; }
+      .hero-stat span { padding-left: 11px; font-size: 8px; }
+      .search-section { margin-top: -38px; }
+      .search-panel { padding: 19px 15px 16px; }
+      .search-heading h2 { font-size: 20px; }
+      .search-heading span { display: none; }
+      .search-grid { grid-template-columns: repeat(2,minmax(0,1fr)); gap: 8px; }
+      .search-grid .field:nth-child(1), .search-grid .field:nth-child(2) { grid-column: span 1; }
+      .search-submit { grid-column: 1/-1; }
+      .extra-search { grid-template-columns: repeat(2,1fr); }
+      .section { padding: 67px 0; }
+      .section-head { align-items: flex-start; flex-direction: column; gap: 12px; margin-bottom: 22px; }
+      .section-head h2 { font-size: 37px; }
+      .section-head p { font-size: 11px; }
+      .category-grid { grid-template-columns: repeat(2,1fr); gap: 9px; }
+      .category-card { height: 155px; }
+      .category-card:nth-child(n+9) { display: block; }
+      .category-card:nth-child(n+11) { display: none; }
+      .category-label { bottom: 11px; left: 11px; }
+      .category-label strong { font-size: 17px; }
+      .plans-section { padding: 65px 0; }
+      .plan-tools { align-items: flex-start; }
+      .sort-wrap { flex-direction: column; align-items: flex-end; gap: 5px; }
+      .sort-wrap select { max-width: 155px; }
+      .plan-grid { grid-template-columns: repeat(2,minmax(0,1fr)); gap: 10px; }
+      .plan-image { height: 155px; }
+      .plan-badge { top: 8px; left: 8px; padding: 5px 6px; font-size: 7px; }
+      .heart { top: 7px; right: 7px; width: 29px; height: 29px; }
+      .plan-body { padding: 11px 10px 12px; }
+      .plan-kicker { font-size: 7px; }
+      .plan-body h3 { margin: 7px 0 9px; font-size: 19px; }
+      .spec { min-width: 44px; padding: 0 4px; }
+      .spec b { font-size: 11px; }
+      .spec span { font-size: 7px; }
+      .plan-bottom { align-items: flex-end; padding-top: 10px; }
+      .price { font-size: 14px; }
+      .view-plan { min-height: 32px; padding: 0 8px; font-size: 8px; }
+      .trust-inner { grid-template-columns: repeat(2,1fr); gap: 18px 12px; }
+      .trust-item { gap: 8px; }
+      .trust-item b { font-size: 9px; }
+      .trust-item span { font-size: 8px; }
+      .trust-icon { width: 31px; height: 31px; flex-basis: 31px; }
+      .feature-band { grid-template-columns: 1fr; }
+      .feature-image { min-height: 240px; max-height: 270px; }
+      .feature-copy { padding: 43px 25px 47px; }
+      .feature-copy h2 { font-size: 39px; }
+      .feature-points { gap: 10px; }
+      .steps-section { padding: 67px 0; }
+      .steps-grid { grid-template-columns: repeat(2,1fr); row-gap: 23px; }
+      .step { padding: 20px 10px 0 0; }
+      .step:nth-child(2)::after { display: none; }
+      .step h3 { font-size: 19px; }
+      .modification { grid-template-columns: 1fr; }
+      .modification-copy { padding: 48px 25px; }
+      .modification h2 { font-size: 39px; }
+      .modification-image { min-height: 220px; }
+      .resources { padding: 65px 0; }
+      .pricing-section, .faq-section { padding: 65px 0; }
+      .pricing-cards { grid-template-columns: repeat(2,1fr); gap: 9px; }
+      .price-tier { min-height: 170px; padding: 16px 13px; }
+      .price-tier h3 { font-size: 20px; }
+      .price-tier strong { font-size: 15px; }
+      .package-table { min-width: 570px; }
+      .about-section { grid-template-columns: 1fr; }
+      .about-copy { padding: 47px 25px; }
+      .about-copy h2 { font-size: 39px; }
+      .about-image { min-height: 245px; }
+      .faq-grid { grid-template-columns: 1fr; gap: 20px; }
+      .faq-intro h2 { font-size: 37px; }
+      .faq-intro p { max-width: 430px; }
+      .resource-grid { grid-template-columns: 1fr; gap: 13px; }
+      .resource-card { display: grid; grid-template-columns: 120px 1fr; }
+      .resource-card img { height: 100%; min-height: 140px; }
+      .resource-content { padding: 13px; }
+      .resource-content h3 { font-size: 18px; margin: 5px 0 9px; }
+      .disclaimer-inner { grid-template-columns: 1fr; gap: 8px; }
+      .footer-grid { grid-template-columns: 1fr 1fr; gap: 28px 18px; }
+      .footer-about { max-width: 100%; }
+      .footer-bottom { flex-direction: column; }
+      .footer-bottom a { margin: 0 13px 0 0; }
+      .overlay { padding: 0; align-items: flex-end; }
+      .dialog { max-height: 94vh; }
+      .detail-layout { grid-template-columns: 1fr; }
+      .detail-hero-image { height: 245px; }
+      .detail-thumbs img { height: 75px; }
+      .detail-content { padding: 23px 20px 94px; }
+      .detail-content h2 { font-size: 29px; }
+      .detail-content .plan-specs { margin: 12px 0; }
+      .detail-buy { display: none; }
+      .mobile-buy { position: fixed; z-index: 22; bottom: 0; left: 0; right: 0; display: none; align-items: center; justify-content: space-between; gap: 15px; padding: 11px 18px calc(11px + env(safe-area-inset-bottom)); border-top: 1px solid var(--line); background: var(--white); }
+      .mobile-buy.visible { display: flex; }
+      .mobile-buy span { display: block; color: var(--muted); font-size: 8px; }
+      .mobile-buy strong { font: 700 17px var(--display); }
+      .mobile-buy .button { min-height: 42px; }
+      .form-dialog { padding: 26px 20px; }
+      .form-dialog h2 { font-size: 32px; }
+      .form-grid { grid-template-columns: 1fr; }
+      .form-grid .full { grid-column: auto; }
+      .toast { bottom: 75px; right: 12px; }
+    }
+    @media (max-width: 390px) {
+      .wrap { width: calc(100% - 28px); }
+      .hero-content { width: calc(100% - 32px); }
+      .hero-actions .button { padding: 0 13px; font-size: 10px; }
+      .plan-specs { row-gap: 7px; }
+      .spec { min-width: 39px; }
+      .spec span { font-size: 6.5px; }
+      .plan-bottom { align-items: flex-start; flex-direction: column; }
+      .view-plan { width: 100%; }
+    }
+  </style>
+</head>
+<body>
+  <div class="announcement">Thoughtful plans for the place you'll call home <b>· Explore the collection</b></div>
+  <header class="header">
+    <div class="wrap header-inner">
+      <a class="brand" href="#" aria-label="Fieldhouse Plans home">
+        <span class="brand-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="m3 11 9-7 9 7M5.5 9.5V20h13V9.5M9 20v-6h6v6M3 11h18"/></svg></span>
+        <span class="brand-name">fieldhouse<small>house plans</small></span>
+      </a>
+      <nav class="nav" id="mainNav" aria-label="Main navigation">
+        <a href="#plans">House Plans</a><a href="#categories">Collections</a><a href="#pricing">Pricing</a><a href="#how-it-works">How It Works</a><a href="#about">About</a><a href="#faq">FAQ</a>
+      </nav>
+      <div class="header-actions">
+        <button class="icon-button" id="favoritesButton" aria-label="Show saved plans">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M20.8 8.7c0 4.1-8.8 10-8.8 10s-8.8-5.9-8.8-10a4.6 4.6 0 0 1 8.8-1.8 4.6 4.6 0 0 1 8.8 1.8Z"/></svg>
+        </button>
+        <button class="icon-button" id="cartButton" aria-label="Open shopping cart">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M3 4h2l2.2 11.1a2 2 0 0 0 2 1.6h8.9a2 2 0 0 0 2-1.6L22 8H6M10 21h.01M18 21h.01"/></svg><span class="cart-count" id="cartCount">0</span>
+        </button>
+        <a class="button small" href="#plans">Find Your Plan <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14m-6-6 6 6-6 6"/></svg></a>
+        <button class="icon-button mobile-menu" id="menuButton" aria-label="Open menu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" aria-label="Discover thoughtfully designed house plans">
+      <div class="hero-content">
+        <div class="eyebrow">A good home starts with a good plan</div>
+        <h1>House plans for the life you're building.</h1>
+        <p>Explore considered home designs, ready to make your own. Find the layout, details, and feeling that fit the way you want to live.</p>
+        <div class="hero-actions">
+          <a class="button light" href="#plans">Browse House Plans <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14m-6-6 6 6-6 6"/></svg></a>
+          <a class="button secondary" style="color:white;border-color:rgba(255,255,255,.62)" href="#search">Find Your Plan</a>
+        </div>
+        <div class="hero-note"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 3 4.5 6v5.2c0 4.4 3.2 8.3 7.5 9.8 4.3-1.5 7.5-5.4 7.5-9.8V6L12 3Z"/><path d="m9 12 2 2 4-4"/></svg> Plans made for American homes, with options to make them yours</div>
+      </div>
+      <div class="hero-stat"><strong>1,200+</strong><span>ideas for your next chapter</span></div>
+    </section>
+
+    <section class="search-section wrap" id="search" aria-label="Search house plans">
+      <form class="search-panel" id="searchForm">
+        <div class="search-heading"><h2>Find a plan that feels right</h2><span>Start with the details that matter most to you.</span></div>
+        <div class="search-grid">
+          <div class="field"><label for="bedrooms">Bedrooms</label><select id="bedrooms"><option value="">Any</option><option value="2">2+</option><option value="3">3+</option><option value="4">4+</option><option value="5">5+</option></select></div>
+          <div class="field"><label for="bathrooms">Bathrooms</label><select id="bathrooms"><option value="">Any</option><option value="2">2+</option><option value="3">3+</option><option value="4">4+</option></select></div>
+          <div class="field"><label for="squareFeet">Square Feet</label><select id="squareFeet"><option value="">Any size</option><option value="small">Under 1,800</option><option value="medium">1,800–2,800</option><option value="large">Over 2,800</option></select></div>
+          <div class="field"><label for="stories">Stories</label><select id="stories"><option value="">Any</option><option value="1">1 Story</option><option value="2">2 Stories</option></select></div>
+          <div class="field"><label for="garage">Garage</label><select id="garage"><option value="">Any</option><option value="2">2-Car</option><option value="3">3-Car</option></select></div>
+          <button class="button search-submit" type="submit"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="10.8" cy="10.8" r="6.8"/><path d="m16 16 5 5"/></svg> Search Plans</button>
+        </div>
+        <button class="search-more" type="button" id="moreFilters">+ More ways to narrow your search</button>
+        <div class="extra-search" id="extraSearch">
+          <div class="field"><label for="style">Home Style</label><select id="style"><option value="">Any style</option><option>Modern Farmhouse</option><option>Modern</option><option>Craftsman</option><option>Ranch</option><option>Barndominium</option><option>Cottage</option><option>Traditional</option><option>Contemporary</option><option>Cabin</option><option>Luxury</option></select></div>
+          <div class="field"><label for="foundation">Foundation</label><select id="foundation"><option value="">Any</option><option>Slab</option><option>Crawlspace</option><option>Basement</option></select></div>
+          <div class="field"><label for="width">Max Width</label><select id="width"><option value="">Any</option><option value="50">Up to 50 ft</option><option value="70">Up to 70 ft</option><option value="90">Up to 90 ft</option></select></div>
+          <div class="field"><label for="depth">Max Depth</label><select id="depth"><option value="">Any</option><option value="40">Up to 40 ft</option><option value="60">Up to 60 ft</option><option value="80">Up to 80 ft</option></select></div>
+          <div class="field"><label for="features">Special Features</label><select id="features"><option value="">Any feature</option><option>Office</option><option>Bonus Room</option><option>Covered Porch</option><option>First-Floor Primary</option></select></div>
+        </div>
+      </form>
+    </section>
+
+    <section class="section" id="categories">
+      <div class="wrap">
+        <div class="section-head">
+          <div><div class="eyebrow">Find your kind of home</div><h2 class="serif">Explore by style</h2></div>
+          <a class="text-link" href="#plans">See all house plans <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 12h15m-6-6 6 6-6 6"/></svg></a>
+        </div>
+        <div class="category-grid" id="categoryGrid"></div>
+        <button class="button secondary small categories-more" id="allCategories">Explore all styles</button>
+      </div>
+    </section>
+
+    <section class="plans-section" id="plans">
+      <div class="wrap">
+        <div class="section-head">
+          <div><div class="eyebrow">A few good places to start</div><h2 class="serif">Plans to fall for</h2></div>
+          <p>Every plan has a point of view. Explore the details, compare your favorites, and find the one that feels like home.</p>
+        </div>
+        <div class="plan-tools">
+          <div class="result-count" id="resultCount">Showing our featured plans</div>
+          <label class="sort-wrap">Sort by
+            <select id="sortPlans" aria-label="Sort plans">
+              <option value="recommended">Recommended</option><option value="newest">Newest</option><option value="priceLow">Price: Low to High</option><option value="priceHigh">Price: High to Low</option><option value="size">Square Feet</option><option value="popular">Most Popular</option>
+            </select>
+          </label>
+        </div>
+        <div class="active-filters" id="activeFilters">
+          <button class="filter-chip" data-filter="style"></button><button class="filter-chip" data-filter="search"></button>
+        </div>
+        <div class="plan-grid" id="planGrid"></div>
+      </div>
+    </section>
+
+    <div class="trust-strip">
+      <div class="wrap trust-inner">
+        <div class="trust-item"><span class="trust-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="m12 3 8 4v5c0 4.2-3.1 7.7-8 9-4.9-1.3-8-4.8-8-9V7l8-4Z"/><path d="m8.5 12 2.2 2.2 4.8-5"/></svg></span><div><b>Clear plan details</b><span>Know what's included</span></div></div>
+        <div class="trust-item"><span class="trust-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M4 5h16v14H4zM8 9h8M8 13h8M8 16h4"/></svg></span><div><b>Flexible formats</b><span>PDF, CAD, and print options</span></div></div>
+        <div class="trust-item"><span class="trust-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M12 3v18M3 12h18"/><circle cx="12" cy="12" r="8"/></svg></span><div><b>Make it your own</b><span>Modification requests welcome</span></div></div>
+        <div class="trust-item"><span class="trust-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M4 12a8 8 0 0 1 16 0v4a2 2 0 0 1-2 2h-2v-6h4M4 12v4a2 2 0 0 0 2 2h2v-6H4Z"/></svg></span><div><b>Here to help</b><span>Real people, thoughtful support</span></div></div>
+      </div>
+    </div>
+
+    <section class="feature-band">
+      <div class="feature-image"><img src="https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=1200&q=80" alt="Warm modern farmhouse exterior surrounded by trees" loading="lazy"></div>
+      <div class="feature-copy">
+        <div class="eyebrow">Thoughtful by design</div>
+        <h2>A starting point for your forever place.</h2>
+        <p>Good design isn't just what you see from the street. It's the morning light in the kitchen, a little more room around the table, and a layout that grows with you.</p>
+        <ul class="feature-points">
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m5 12 4 4L19 6"/></svg>Plans for real-life routines</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m5 12 4 4L19 6"/></svg>Clear package choices</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m5 12 4 4L19 6"/></svg>Options to personalize</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m5 12 4 4L19 6"/></svg>Made for your next chapter</li>
+        </ul>
+        <a class="button" href="#plans">Explore the collection</a>
+      </div>
+    </section>
+
+    <section class="about-section" id="about">
+      <div class="about-copy">
+        <div class="eyebrow">A collection with a point of view</div>
+        <h2>Good design makes room for real life.</h2>
+        <p>Fieldhouse brings together thoughtfully designed residential plans for people planning what comes next. We believe a home should feel considered, welcoming, and distinctly yours—not just look beautiful in a picture.</p>
+        <p>Our collection is made to help you find a strong starting point. Clear plan details, flexible package choices, and modification conversations make it easier to explore the possibilities with your builder and local professionals.</p>
+        <a class="text-link" href="#how-it-works">See how it works <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 12h15m-6-6 6 6-6 6"/></svg></a>
+      </div>
+      <div class="about-image" role="img" aria-label="Quiet, light-filled home interior"></div>
+    </section>
+
+    <section class="steps-section" id="how-it-works">
+      <div class="wrap">
+        <div class="section-head">
+          <div><div class="eyebrow">From daydream to blueprint</div><h2 class="serif">A clearer way to get started.</h2></div>
+          <p>Choosing a plan is a big step. We make the first few ones feel simple.</p>
+        </div>
+        <div class="steps-grid">
+          <div class="step"><div class="step-number">01</div><h3>Find your plan</h3><p>Search by style, size, and the details that make everyday living work.</p></div>
+          <div class="step"><div class="step-number">02</div><h3>Choose your package</h3><p>Compare PDF, CAD, and printed plan options before you decide.</p></div>
+          <div class="step"><div class="step-number">03</div><h3>Make it yours</h3><p>Ask about changes to help your chosen plan fit your vision.</p></div>
+          <div class="step"><div class="step-number">04</div><h3>Build your home</h3><p>Work with local professionals to adapt your plans and bring them to life.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="pricing-section" id="pricing">
+      <div class="wrap">
+        <div class="section-head">
+          <div><div class="eyebrow">Straightforward from the start</div><h2 class="serif">Plans for different projects.</h2></div>
+          <p>Choose a plan package based on how you and your building team prefer to work. Exact options and pricing are shown on each plan.</p>
+        </div>
+        <div class="pricing-cards">
+          <article class="price-tier"><div class="eyebrow">A smaller start</div><h3>Starter Plans</h3><strong>$495–$795</strong><p>Thoughtful compact homes and smaller footprints.</p></article>
+          <article class="price-tier featured"><div class="eyebrow">Made for everyday</div><h3>Standard Plans</h3><strong>$795–$1,395</strong><p>Flexible family homes in a range of familiar styles.</p></article>
+          <article class="price-tier"><div class="eyebrow">More room to dream</div><h3>Premium Plans</h3><strong>$1,395–$2,495</strong><p>Expanded layouts, added details, and larger spaces.</p></article>
+          <article class="price-tier"><div class="eyebrow">Distinctive living</div><h3>Luxury Plans</h3><strong>$2,495+</strong><p>Distinctive designs with more scale and complexity.</p></article>
+        </div>
+        <div class="package-table-wrap">
+          <table class="package-table">
+            <thead><tr><th>Plan package</th><th>Digital PDF</th><th>Editable CAD</th><th>Printed sets</th><th>License & support</th></tr></thead>
+            <tbody>
+              <tr><td>PDF Construction Set</td><td class="yes">Included</td><td>—</td><td>—</td><td>Single-home</td></tr>
+              <tr><td>PDF + CAD</td><td class="yes">Included</td><td class="yes">Included</td><td>—</td><td>Single-home</td></tr>
+              <tr><td>Printed Plan Set</td><td>Digital access varies</td><td>—</td><td class="yes">5 sets</td><td>Single-home</td></tr>
+              <tr><td>Premium Package</td><td class="yes">Included</td><td class="yes">Included</td><td class="yes">Included</td><td>Enhanced license & priority support</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="pricing-note">Final pricing varies by plan size, complexity, designer, and package. Package availability varies by plan. See the selected plan's details before purchase.</p>
+      </div>
+    </section>
+
+    <section class="modification" id="modifications">
+      <div class="modification-copy">
+        <div class="eyebrow">A little different? That's the point.</div>
+        <h2>Love the plan. Want to make a few changes?</h2>
+        <p>Move a wall, rethink the kitchen, add a porch, or start a conversation about a bigger change. Tell us what you're imagining and we'll help you explore the next step.</p>
+        <button class="button light" id="requestModification">Request a Modification <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14m-6-6 6 6-6 6"/></svg></button>
+      </div>
+      <div class="modification-image" role="img" aria-label="Sunlit contemporary home interior"></div>
+    </section>
+
+    <section class="faq-section" id="faq">
+      <div class="wrap faq-grid">
+        <div class="faq-intro"><div class="eyebrow">Good questions, clear answers</div><h2>Before you choose a plan.</h2><p>Building is a big undertaking. Here are a few details to help you start with confidence.</p><a class="text-link" href="mailto:hello@fieldhouseplans.com">Ask us a question <span>→</span></a></div>
+        <div class="faq-list">
+          <details><summary>Are these plans ready to build?</summary><p>Plans include construction drawings as described on each plan's product page. Local codes, site conditions, engineering, zoning, and permitting requirements vary; have your local building professional review and adapt the documents as needed.</p></details>
+          <details><summary>What is included in the PDF or CAD package?</summary><p>The PDF package provides a digital construction set. PDF + CAD adds editable CAD files intended for use by qualified design and building professionals. Exact file contents vary by plan and are listed with its package options.</p></details>
+          <details><summary>Can I make changes or reverse a plan?</summary><p>Modification consultations and right-reading reverse options may be available for an additional cost. Use the modification request form to describe what you have in mind; availability and pricing depend on the plan and requested changes.</p></details>
+          <details><summary>Can I build the home more than once?</summary><p>A standard purchase includes a single-home construction license. An additional build license may be purchased where offered. Plans and CAD files are copyrighted and may not be copied, resold, or redistributed.</p></details>
+          <details><summary>Are plans engineered or guaranteed to meet my local code?</summary><p>Do not assume engineering or local code compliance is included. Requirements vary by jurisdiction, site, and project. Your local building department and qualified professionals can advise what review, engineering, or adaptation is required.</p></details>
+          <details><summary>How will I receive my plan, and are purchases refundable?</summary><p>Digital formats are intended for delivery after purchase; printed sets, where offered, are shipped. Delivery timing, file access, and purchase-change or refund terms should be confirmed in the plan's checkout and license terms before placing an order.</p></details>
+          <details><summary>Can you design a completely custom home?</summary><p>Fieldhouse is a collection of residential plans with modification conversations available. A fully custom design engagement is not implied; contact the team to ask about current services.</p></details>
+        </div>
+      </div>
+    </section>
+
+    <section class="resources" id="resources">
+      <div class="wrap">
+        <div class="section-head">
+          <div><div class="eyebrow">A little inspiration, a lot of clarity</div><h2 class="serif">Notes for the road ahead.</h2></div>
+          <a class="text-link" href="#resources">Visit the resource center <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 12h15m-6-6 6 6-6 6"/></svg></a>
+        </div>
+        <div class="resource-grid">
+          <article class="resource-card"><img src="https://images.unsplash.com/photo-1600047509807-ba8f99d2cdde?auto=format&fit=crop&w=800&q=80" alt="Small white home nestled among trees" loading="lazy"><div class="resource-content"><div class="eyebrow">Plan with confidence · 6 min read</div><h3>How to choose a house plan that fits your life</h3><a class="text-link" href="#plans">Explore house plans <span>→</span></a></div></article>
+          <article class="resource-card"><img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=800&q=80" alt="Inviting bright living room" loading="lazy"><div class="resource-content"><div class="eyebrow">Design notes · 5 min read</div><h3>Ranch or two-story? Finding your right fit</h3><a class="text-link" href="#plans">Browse single-story plans <span>→</span></a></div></article>
+          <article class="resource-card"><img src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=800&q=80" alt="Thoughtfully designed home interior" loading="lazy"><div class="resource-content"><div class="eyebrow">Getting started · 8 min read</div><h3>What to know before buying a home plan</h3><a class="text-link" href="#license">Read the important details <span>→</span></a></div></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="disclaimer" id="license">
+      <div class="wrap disclaimer-inner">
+        <h3>Before you build</h3>
+        <p>House plans are design documents intended as a starting point for your project. Building codes, engineering, site conditions, zoning, and permitting requirements vary by location. Plans may need review and adaptation by qualified local professionals. A plan purchase includes a limited license for construction as described in the package details; plans and CAD files remain protected by copyright and may not be redistributed. Additional build licenses are available for purchase. Engineering and code compliance are not represented as included unless specifically stated for a plan.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="wrap">
+      <div class="footer-grid">
+        <div><a class="brand" href="#"><span class="brand-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="m3 11 9-7 9 7M5.5 9.5V20h13V9.5M9 20v-6h6v6M3 11h18"/></svg></span><span class="brand-name">fieldhouse<small>house plans</small></span></a><p class="footer-about">Thoughtful home designs for the way you want to live. Find your plan, then make it your own.</p></div>
+        <div><h4>Explore</h4><div class="footer-links"><a href="#plans">All House Plans</a><a href="#categories">Home Styles</a><a href="#plans">Small House Plans</a><a href="#plans">Modern Farmhouse</a></div></div>
+        <div><h4>Here to help</h4><div class="footer-links"><a href="#how-it-works">How It Works</a><a href="#modifications">Plan Modifications</a><a href="#license">Plan Licensing</a><a href="#resources">Resources & FAQ</a></div></div>
+        <div><h4>Have a question?</h4><div class="footer-links"><span>We'd love to help you find your way.</span><a href="mailto:hello@fieldhouseplans.com">hello@fieldhouseplans.com</a><span>Monday–Friday · 9am–5pm CT</span></div></div>
+      </div>
+      <div class="footer-bottom"><span>© 2026 Fieldhouse Plans. A home for good ideas.</span><span><a href="#license">Terms & Licensing</a><a href="#license">Privacy</a></span></div>
+    </div>
+  </footer>
+
+  <div class="scrim" id="scrim"></div>
+  <div class="overlay" id="detailOverlay" aria-hidden="true">
+    <div class="dialog" role="dialog" aria-modal="true" aria-labelledby="detailTitle">
+      <button class="close-button" data-close aria-label="Close plan details"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="m6 6 12 12M18 6 6 18"/></svg></button>
+      <div id="detailContent"></div>
+    </div>
+  </div>
+  <div class="overlay" id="modOverlay" aria-hidden="true">
+    <div class="dialog form-dialog" role="dialog" aria-modal="true" aria-labelledby="modTitle">
+      <button class="close-button" data-close aria-label="Close modification request"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="m6 6 12 12M18 6 6 18"/></svg></button>
+      <div class="eyebrow">Tell us what you're imagining</div><h2 id="modTitle">Let's talk about your plan.</h2>
+      <p>Share a few details and we'll follow up about the right next step. Submitting this demo form won't send your information.</p>
+      <form id="modForm">
+        <div class="form-grid">
+          <div class="field"><label for="modName">Name</label><input id="modName" name="name" required placeholder="Your name"></div>
+          <div class="field"><label for="modEmail">Email</label><input id="modEmail" name="email" type="email" required placeholder="you@example.com"></div>
+          <div class="field"><label for="modPhone">Phone</label><input id="modPhone" name="phone" type="tel" placeholder="Optional"></div>
+          <div class="field"><label for="modPlan">Plan Number</label><input id="modPlan" name="plan" placeholder="e.g. FH-2408"></div>
+          <div class="field full"><label for="modChanges">What would you like to change?</label><textarea id="modChanges" name="changes" required placeholder="Move a wall, add a bedroom, adjust the kitchen..."></textarea></div>
+          <div class="field"><label for="modFile">Sketch or reference</label><input id="modFile" name="file" type="file" accept="image/*,.pdf"></div>
+          <div class="field"><label for="modContact">Preferred contact</label><select id="modContact" name="contact"><option>Email</option><option>Phone</option></select></div>
+        </div>
+        <button class="button form-submit" type="submit">Send modification request <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14m-6-6 6 6-6 6"/></svg></button>
+      </form>
+    </div>
+  </div>
+  <aside class="drawer" id="cartDrawer" aria-label="Shopping cart">
+    <div class="drawer-top"><h2>Your plan basket</h2><button class="icon-button" id="closeCart" aria-label="Close shopping cart"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="m6 6 12 12M18 6 6 18"/></svg></button></div>
+    <div class="drawer-items" id="cartItems"></div>
+    <div class="cart-summary" id="cartSummary"></div>
+  </aside>
+  <div class="mobile-buy" id="mobileBuy"><div><span>Selected package</span><strong id="mobilePrice">$0</strong></div><button class="button" id="mobileAdd">Buy Plan</button></div>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script>
+    const plans = [
+      {id:"FH-2418",name:"The Willow",style:"Modern Farmhouse",sqft:2418,beds:4,baths:3,stories:2,garage:2,price:1395,width:62,depth:48,foundation:"Crawlspace",features:["Office","Covered Porch","Bonus Room"],badge:"Bestseller",popular:97,image:"https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1100&q=82",images:["https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1200&q=82","https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=850&q=78","https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=850&q=78"]},
+      {id:"FH-1872",name:"The Cedar",style:"Craftsman",sqft:1872,beds:3,baths:2,stories:1,garage:2,price:995,width:58,depth:56,foundation:"Slab",features:["First-Floor Primary","Covered Porch"],badge:"Customer favorite",popular:92,image:"https://images.unsplash.com/photo-1600047509807-ba8f99d2cdde?auto=format&fit=crop&w=1100&q=82",images:["https://images.unsplash.com/photo-1600047509807-ba8f99d2cdde?auto=format&fit=crop&w=1200&q=82","https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=850&q=78","https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=850&q=78"]},
+      {id:"FH-2960",name:"The Hawthorne",style:"Modern",sqft:2960,beds:4,baths:3.5,stories:2,garage:3,price:1795,width:74,depth:52,foundation:"Basement",features:["Office","Bonus Room"],badge:"New",popular:88,image:"https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1100&q=82",images:["https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1200&q=82","https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?auto=format&fit=crop&w=850&q=78","https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=850&q=78"]},
+      {id:"FH-2246",name:"The Homestead",style:"Farmhouse",sqft:2246,beds:3,baths:2.5,stories:1,garage:2,price:1295,width:68,depth:54,foundation:"Crawlspace",features:["First-Floor Primary","Covered Porch"],badge:"",popular:83,image:"https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?auto=format&fit=crop&w=1100&q=82",images:["https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?auto=format&fit=crop&w=1200&q=82","https://images.unsplash.com/photo-1600047509807-ba8f99d2cdde?auto=format&fit=crop&w=850&q=78","https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=850&q=78"]},
+      {id:"FH-3180",name:"The Juniper",style:"Barndominium",sqft:3180,beds:4,baths:3,stories:1,garage:3,price:1895,width:80,depth:62,foundation:"Slab",features:["Office","Bonus Room","Covered Porch"],badge:"Room to grow",popular:79,image:"https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=1100&q=82",images:["https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=1200&q=82","https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=850&q=78","https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?auto=format&fit=crop&w=850&q=78"]},
+      {id:"FH-1420",name:"The Little Fern",style:"Cottage",sqft:1420,beds:2,baths:2,stories:1,garage:1,price:795,width:42,depth:48,foundation:"Slab",features:["First-Floor Primary","Covered Porch"],badge:"Small & lovely",popular:75,image:"https://images.unsplash.com/photo-1600047509358-9dc75507daeb?auto=format&fit=crop&w=1100&q=82",images:["https://images.unsplash.com/photo-1600047509358-9dc75507daeb?auto=format&fit=crop&w=1200&q=82","https://images.unsplash.com/photo-1600047509807-ba8f99d2cdde?auto=format&fit=crop&w=850&q=78","https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=850&q=78"]},
+      {id:"FH-2704",name:"The Red Oak",style:"Ranch",sqft:2704,beds:4,baths:3,stories:1,garage:3,price:1595,width:76,depth:64,foundation:"Basement",features:["First-Floor Primary","Office"],badge:"",popular:70,image:"https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=1100&q=82",images:["https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=1200&q=82","https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?auto=format&fit=crop&w=850&q=78","https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=850&q=78"]},
+      {id:"FH-2088",name:"The Bluebird",style:"Traditional",sqft:2088,beds:3,baths:2.5,stories:2,garage:2,price:1195,width:60,depth:44,foundation:"Crawlspace",features:["Office","Covered Porch"],badge:"",popular:64,image:"https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?auto=format&fit=crop&w=1100&q=82",images:["https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?auto=format&fit=crop&w=1200&q=82","https://images.unsplash.com/photo-1600047509358-9dc75507daeb?auto=format&fit=crop&w=850&q=78","https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=850&q=78"]},
+      {id:"FH-3560",name:"The Solstice",style:"Contemporary",sqft:3560,beds:5,baths:4,stories:2,garage:3,price:2495,width:88,depth:70,foundation:"Basement",features:["Office","Bonus Room"],badge:"Signature",popular:60,image:"https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?auto=format&fit=crop&w=1100&q=82",images:["https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?auto=format&fit=crop&w=1200&q=82","https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=850&q=78","https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=850&q=78"]}
+    ];
+    const categories = [
+      ["Modern","https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?auto=format&fit=crop&w=650&q=75"],
+      ["Modern Farmhouse","https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?auto=format&fit=crop&w=650&q=75"],
+      ["Farmhouse","https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?auto=format&fit=crop&w=650&q=75"],
+      ["Craftsman","https://images.unsplash.com/photo-1600047509807-ba8f99d2cdde?auto=format&fit=crop&w=650&q=75"],
+      ["Ranch","https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=650&q=75"],
+      ["Barndominium","https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=650&q=75"],
+      ["Contemporary","https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?auto=format&fit=crop&w=650&q=75"],
+      ["Traditional","https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?auto=format&fit=crop&w=650&q=75"],
+      ["Cottage","https://images.unsplash.com/photo-1600047509358-9dc75507daeb?auto=format&fit=crop&w=650&q=75"],
+      ["Cabin","https://images.unsplash.com/photo-1600047509807-ba8f99d2cdde?auto=format&fit=crop&w=650&q=75"],
+      ["Luxury","https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=650&q=75"],
+      ["Small Homes","https://images.unsplash.com/photo-1600047509358-9dc75507daeb?auto=format&fit=crop&w=650&q=75"]
+    ];
+    const packages = [
+      {id:"pdf",name:"PDF Construction Set",description:"Complete digital construction drawings · single-home license",price:0},
+      {id:"cad",name:"PDF + CAD",description:"PDF set plus editable CAD files for professional modifications",price:500},
+      {id:"print",name:"Printed Plan Set",description:"Five printed construction sets, shipped to your door",price:100},
+      {id:"premium",name:"Premium Package",description:"PDF, CAD, printed sets, enhanced license, and priority support",price:800}
+    ];
+    const upgrades = [
+      {id:"reverse",name:"Right-reading reverse",price:125},
+      {id:"prints",name:"Additional printed sets",price:25},
+      {id:"license",name:"Additional build license",price:300},
+      {id:"materials",name:"Material list",price:295},
+      {id:"guide",name:"Construction guide",price:49}
+    ];
+    const state = {style:"",filters:{},favorites:new Set(),cart:[],currentPlan:null,selectedPackage:"pdf",selectedUpgrades:new Set(),showFavorites:false};
+    const money = n => "$" + n.toLocaleString("en-US");
+    const iconHeart = '<svg viewBox="0 0 24 24"><path d="M20.8 8.7c0 4.1-8.8 10-8.8 10s-8.8-5.9-8.8-10a4.6 4.6 0 0 1 8.8-1.8 4.6 4.6 0 0 1 8.8 1.8Z"/></svg>';
+    const categoryGrid = document.getElementById("categoryGrid");
+    const planGrid = document.getElementById("planGrid");
+    const numberFmt = n => n.toLocaleString("en-US");
+
+    categories.forEach(([name,image]) => {
+      const card = document.createElement("button");
+      card.className = "category-card"; card.type = "button"; card.setAttribute("aria-label", "Browse " + name + " plans");
+      card.innerHTML = `<img src="${image}" alt="" loading="lazy"><span class="category-label"><strong>${name}</strong><span>Explore →</span></span>`;
+      card.addEventListener("click", () => { state.style = name === "Small Homes" ? "small" : name; state.showFavorites = false; renderPlans(); document.getElementById("plans").scrollIntoView({behavior:"smooth"}); });
+      categoryGrid.appendChild(card);
+    });
+    const planCard = plan => `<article class="plan-card">
+      <div class="plan-image" data-plan="${plan.id}" tabindex="0" role="button" aria-label="View ${plan.name} house plan"><img src="${plan.image}" alt="${plan.style} home plan ${plan.id}" loading="lazy">${plan.badge ? `<span class="plan-badge">${plan.badge}</span>` : ""}<button class="heart ${state.favorites.has(plan.id) ? "saved" : ""}" data-favorite="${plan.id}" aria-label="${state.favorites.has(plan.id) ? "Remove from" : "Add to"} favorites">${iconHeart}</button></div>
+      <div class="plan-body"><div class="plan-kicker"><span>${plan.style}</span><span>${plan.id}</span></div><h3>${plan.name}</h3><div class="plan-specs"><div class="spec"><b>${numberFmt(plan.sqft)}</b><span>Sq Ft</span></div><div class="spec"><b>${plan.beds}</b><span>Beds</span></div><div class="spec"><b>${plan.baths}</b><span>Baths</span></div><div class="spec"><b>${plan.stories}</b><span>Stories</span></div><div class="spec"><b>${plan.garage}</b><span>Garage</span></div></div><div class="plan-bottom"><div><span class="price-label">Starting at</span><span class="price">${money(plan.price)}</span></div><button class="button secondary view-plan" data-plan="${plan.id}">View Plan</button></div></div>
+    </article>`;
+    function filteredPlans() {
+      let list = [...plans];
+      if (state.style === "small") list = list.filter(p => p.sqft < 1800);
+      else if (state.style) list = list.filter(p => p.style.toLowerCase() === state.style.toLowerCase());
+      const f = state.filters;
+      if (f.bedrooms) list = list.filter(p => p.beds >= +f.bedrooms);
+      if (f.bathrooms) list = list.filter(p => p.baths >= +f.bathrooms);
+      if (f.stories) list = list.filter(p => p.stories === +f.stories);
+      if (f.garage) list = list.filter(p => p.garage >= +f.garage);
+      if (f.foundation) list = list.filter(p => p.foundation === f.foundation);
+      if (f.width) list = list.filter(p => p.width <= +f.width);
+      if (f.depth) list = list.filter(p => p.depth <= +f.depth);
+      if (f.features) list = list.filter(p => p.features.includes(f.features));
+      if (f.squareFeet === "small") list = list.filter(p => p.sqft < 1800);
+      if (f.squareFeet === "medium") list = list.filter(p => p.sqft >= 1800 && p.sqft <= 2800);
+      if (f.squareFeet === "large") list = list.filter(p => p.sqft > 2800);
+      if (state.showFavorites) list = list.filter(p => state.favorites.has(p.id));
+      const sort = document.getElementById("sortPlans").value;
+      if (sort === "priceLow") list.sort((a,b) => a.price-b.price);
+      if (sort === "priceHigh") list.sort((a,b) => b.price-a.price);
+      if (sort === "size") list.sort((a,b) => a.sqft-b.sqft);
+      if (sort === "popular") list.sort((a,b) => b.popular-a.popular);
+      if (sort === "newest") list.reverse();
+      return list;
+    }
+    function renderPlans() {
+      const list = filteredPlans();
+      planGrid.innerHTML = list.map(planCard).join("") + (list.length ? "" : `<div class="empty-results show"><h3>No plans found just yet.</h3><p>Try broadening your filters to see more of the collection.</p><button class="button secondary small" id="resetFilters">Clear filters</button></div>`);
+      const hasFilters = Object.values(state.filters).some(Boolean) || !!state.style || state.showFavorites;
+      document.getElementById("resultCount").textContent = state.showFavorites ? `${list.length} saved ${list.length === 1 ? "plan" : "plans"}` : hasFilters ? `Showing ${list.length} ${list.length === 1 ? "plan" : "plans"} to explore` : `Showing ${list.length} featured plans`;
+      const styleChip = document.querySelector('[data-filter="style"]');
+      styleChip.classList.toggle("visible", !!state.style || state.showFavorites);
+      styleChip.innerHTML = `${state.showFavorites ? "Saved plans" : state.style} <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="m7 7 10 10M17 7 7 17"/></svg>`;
+      const queryChip = document.querySelector('[data-filter="search"]');
+      const active = Object.entries(state.filters).filter(([,v]) => v);
+      queryChip.classList.toggle("visible", active.length > 0);
+      queryChip.innerHTML = `${active.length ? active.length + " filters" : ""} <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="m7 7 10 10M17 7 7 17"/></svg>`;
+    }
+    function toast(message) {
+      const el = document.getElementById("toast"); el.textContent = message; el.classList.add("show");
+      clearTimeout(toast.timer); toast.timer = setTimeout(() => el.classList.remove("show"), 2700);
+    }
+    function openOverlay(el) { el.classList.add("open"); el.setAttribute("aria-hidden","false"); document.body.classList.add("locked"); }
+    function closeOverlay(el) { el.classList.remove("open"); el.setAttribute("aria-hidden","true"); if (!document.querySelector(".overlay.open") && !document.getElementById("cartDrawer").classList.contains("open")) document.body.classList.remove("locked"); document.getElementById("mobileBuy").classList.remove("visible"); }
+    function openPlan(id) {
+      const plan = plans.find(p => p.id === id); if (!plan) return;
+      state.currentPlan = plan; state.selectedPackage = "pdf"; state.selectedUpgrades.clear();
+      renderDetail(); openOverlay(document.getElementById("detailOverlay"));
+      document.getElementById("mobileBuy").classList.add("visible");
+    }
+    function currentTotal() {
+      const plan = state.currentPlan; if (!plan) return 0;
+      const pack = packages.find(p => p.id === state.selectedPackage);
+      return plan.price + (pack ? pack.price : 0) + [...state.selectedUpgrades].reduce((sum,id) => sum + (upgrades.find(u => u.id === id)?.price || 0),0);
+    }
+    function renderDetail() {
+      const p = state.currentPlan; if (!p) return;
+      const gallery = p.images.map(src => `<img src="${src}" alt="Additional view of ${p.name}" loading="lazy">`).join("");
+      document.getElementById("detailContent").innerHTML = `<div class="detail-layout">
+        <div class="detail-gallery"><img class="detail-hero-image" id="detailHero" src="${p.images[0]}" alt="${p.name} ${p.style} home exterior"><div class="detail-thumbs">${gallery}</div></div>
+        <div class="detail-content"><div class="eyebrow">${p.style}</div><h2 id="detailTitle">${p.name}</h2><div class="detail-id">Plan ${p.id} · ${p.width}' × ${p.depth}'</div>
+          <div class="plan-specs"><div class="spec"><b>${numberFmt(p.sqft)}</b><span>Sq Ft</span></div><div class="spec"><b>${p.beds}</b><span>Beds</span></div><div class="spec"><b>${p.baths}</b><span>Baths</span></div><div class="spec"><b>${p.stories}</b><span>Stories</span></div><div class="spec"><b>${p.garage}</b><span>Garage</span></div></div>
+          <div class="option-title">Choose your plan package</div><div class="package-list">${packages.map(pack => `<label class="package-option ${pack.id === state.selectedPackage ? "selected" : ""}"><input type="radio" name="package" value="${pack.id}" ${pack.id === state.selectedPackage ? "checked" : ""}><span class="package-info"><b>${pack.name}</b><span>${pack.description}</span></span><span class="package-price">${money(p.price+pack.price)}</span></label>`).join("")}</div>
+          <div class="option-title">Optional additions</div><div class="upgrade-list">${upgrades.map(u => `<div class="upgrade"><label><input type="checkbox" value="${u.id}" ${state.selectedUpgrades.has(u.id) ? "checked" : ""}>${u.name}</label><span>+${money(u.price)}</span></div>`).join("")}</div>
+          <div class="detail-total"><span>Total · ${packages.find(x => x.id === state.selectedPackage).name}</span><strong id="detailTotal">${money(currentTotal())}</strong></div>
+          <button class="button detail-buy" id="addToCart">Add to basket</button>
+          <p class="license-note">One-home construction license included with PDF package. Availability varies by plan.</p>
+        </div></div>`;
+      document.getElementById("mobilePrice").textContent = money(currentTotal());
+    }
+    function updatePrice() {
+      document.querySelectorAll(".package-option").forEach(el => el.classList.toggle("selected", el.querySelector("input").checked));
+      const total = money(currentTotal());
+      const detailTotal = document.getElementById("detailTotal"); if (detailTotal) detailTotal.textContent = total;
+      const totalLabel = document.querySelector(".detail-total span");
+      if (totalLabel) totalLabel.textContent = `Total · ${packages.find(pack => pack.id === state.selectedPackage).name}`;
+      document.getElementById("mobilePrice").textContent = total;
+    }
+    function addCurrentToCart() {
+      if (!state.currentPlan) return;
+      const pack = packages.find(p => p.id === state.selectedPackage);
+      const upgradeNames = [...state.selectedUpgrades].map(id => upgrades.find(u => u.id === id).name);
+      state.cart.push({plan:state.currentPlan,package:pack,total:currentTotal(),upgrades:upgradeNames});
+      renderCart(); closeOverlay(document.getElementById("detailOverlay")); toast(`${state.currentPlan.name} added to your basket.`);
+    }
+    function renderCart() {
+      const count = state.cart.length; document.getElementById("cartCount").textContent = count;
+      const items = document.getElementById("cartItems"), summary = document.getElementById("cartSummary");
+      if (!count) { items.innerHTML = '<div class="cart-empty">Your basket is waiting for a plan that feels like home.</div>'; summary.innerHTML = '<button class="button" id="continueShopping">Explore house plans</button><p class="cart-footnote">Secure checkout would be connected to payment processing in production.</p>'; }
+      else {
+        items.innerHTML = state.cart.map((item,i) => `<div class="cart-item"><img src="${item.plan.image}" alt=""><div><h3>${item.plan.name}</h3><p>${item.package.name}${item.upgrades.length ? " · +" + item.upgrades.length + " option(s)" : ""}</p><button class="remove-item" data-remove="${i}">Remove</button></div><strong>${money(item.total)}</strong></div>`).join("");
+        const total = state.cart.reduce((n,x) => n+x.total,0);
+        summary.innerHTML = `<div class="cart-total"><span>Subtotal</span><strong>${money(total)}</strong></div><button class="button" id="checkoutButton">Continue to checkout</button><p class="cart-footnote">Demo storefront: payment processing is not connected.</p>`;
+      }
+    }
+    function openCart() { renderCart(); document.getElementById("scrim").classList.add("open"); document.getElementById("cartDrawer").classList.add("open"); document.body.classList.add("locked"); }
+    function closeCart() { document.getElementById("scrim").classList.remove("open"); document.getElementById("cartDrawer").classList.remove("open"); if (!document.querySelector(".overlay.open")) document.body.classList.remove("locked"); }
+
+    document.getElementById("searchForm").addEventListener("submit", e => {
+      e.preventDefault();
+      const ids = ["bedrooms","bathrooms","stories","garage","foundation","width","depth","features","squareFeet"];
+      state.filters = Object.fromEntries(ids.map(id => [id,document.getElementById(id).value]).filter(([,v]) => v));
+      const chosenStyle = document.getElementById("style").value;
+      state.style = chosenStyle;
+      state.showFavorites = false; renderPlans(); document.getElementById("plans").scrollIntoView({behavior:"smooth"});
+    });
+    document.getElementById("moreFilters").addEventListener("click", e => {
+      const extra = document.getElementById("extraSearch"); extra.classList.toggle("open");
+      e.currentTarget.textContent = extra.classList.contains("open") ? "− Fewer filters" : "+ More ways to narrow your search";
+    });
+    document.getElementById("sortPlans").addEventListener("change", renderPlans);
+    document.getElementById("allCategories").addEventListener("click", e => {
+      const expanded = categoryGrid.classList.toggle("expanded");
+      categoryGrid.querySelectorAll(".category-card").forEach((card,i) => { if (i >= 6) card.style.display = expanded ? "block" : ""; });
+      e.currentTarget.textContent = expanded ? "Show fewer styles" : "Explore all styles";
+    });
+    planGrid.addEventListener("click", e => {
+      const favorite = e.target.closest("[data-favorite]");
+      if (favorite) { const id = favorite.dataset.favorite; state.favorites.has(id) ? state.favorites.delete(id) : state.favorites.add(id); renderPlans(); return; }
+      const open = e.target.closest("[data-plan]");
+      if (open) openPlan(open.dataset.plan);
+      if (e.target.id === "resetFilters") { state.filters={}; state.style=""; state.showFavorites=false; document.getElementById("searchForm").reset(); renderPlans(); }
+    });
+    planGrid.addEventListener("keydown", e => { if ((e.key === "Enter" || e.key === " ") && e.target.matches(".plan-image")) { e.preventDefault(); openPlan(e.target.dataset.plan); } });
+    document.getElementById("activeFilters").addEventListener("click", e => {
+      const chip = e.target.closest("[data-filter]"); if (!chip) return;
+      if (chip.dataset.filter === "style") { state.style=""; state.showFavorites=false; document.getElementById("style").value=""; }
+      else { state.filters={}; document.getElementById("searchForm").reset(); }
+      renderPlans();
+    });
+    document.getElementById("favoritesButton").addEventListener("click", () => {
+      state.showFavorites = !state.showFavorites; state.style=""; state.filters={}; renderPlans(); document.getElementById("plans").scrollIntoView({behavior:"smooth"});
+      if (!state.favorites.size) toast("Save a plan with the heart icon to find it here.");
+    });
+    document.getElementById("cartButton").addEventListener("click", openCart);
+    document.getElementById("closeCart").addEventListener("click", closeCart);
+    document.getElementById("scrim").addEventListener("click", closeCart);
+    document.getElementById("cartItems").addEventListener("click", e => {
+      const b = e.target.closest("[data-remove]"); if (b) { state.cart.splice(+b.dataset.remove,1); renderCart(); }
+    });
+    document.getElementById("cartSummary").addEventListener("click", e => {
+      if (e.target.id === "continueShopping") closeCart();
+      if (e.target.id === "checkoutButton") toast("Checkout is a demo flow. Connect a secure payment provider before launch.");
+    });
+    document.getElementById("detailContent").addEventListener("change", e => {
+      if (e.target.name === "package") { state.selectedPackage=e.target.value; updatePrice(); }
+      if (e.target.type === "checkbox") { e.target.checked ? state.selectedUpgrades.add(e.target.value) : state.selectedUpgrades.delete(e.target.value); updatePrice(); }
+    });
+    document.getElementById("detailContent").addEventListener("click", e => {
+      if (e.target.closest("#addToCart")) addCurrentToCart();
+      const thumb = e.target.closest(".detail-thumbs img");
+      if (thumb) document.getElementById("detailHero").src = thumb.src;
+    });
+    document.getElementById("mobileAdd").addEventListener("click", addCurrentToCart);
+    document.querySelectorAll("[data-close]").forEach(btn => btn.addEventListener("click", () => closeOverlay(btn.closest(".overlay"))));
+    document.querySelectorAll(".overlay").forEach(overlay => overlay.addEventListener("click", e => { if (e.target === overlay) closeOverlay(overlay); }));
+    document.getElementById("requestModification").addEventListener("click", () => openOverlay(document.getElementById("modOverlay")));
+    document.getElementById("modForm").addEventListener("submit", e => {
+      e.preventDefault(); closeOverlay(document.getElementById("modOverlay")); e.currentTarget.reset(); toast("Thanks — your request is ready for the business to receive once connected.");
+    });
+    document.getElementById("menuButton").addEventListener("click", () => document.getElementById("mainNav").classList.toggle("open"));
+    document.getElementById("mainNav").addEventListener("click", e => { if (e.target.closest("a")) document.getElementById("mainNav").classList.remove("open"); });
+    document.addEventListener("keydown", e => { if (e.key === "Escape") { document.querySelectorAll(".overlay.open").forEach(closeOverlay); closeCart(); document.getElementById("mainNav").classList.remove("open"); } });
+    renderPlans(); renderCart();
+  </script>
+</body>
+</html>
