@@ -77,6 +77,19 @@ PRODUCTS = {
     "epson-px660-adjustment-program": "PX660",
 }
 
+PRODUCT_ARCHIVES = {
+    "epson-tx550w-adjustment-program": "tx550w-sx510w.rar",
+    "epson-sx510w-adjustment-program": "tx550w-sx510w.rar",
+    "epson-l3111-adjustment-program": "l3110-l3111.zip",
+    "epson-l3110-adjustment-program": "l3110-l3111.zip",
+    "epson-l130-adjustment-program": "l130-l220-l310-l360-l365.zip",
+    "epson-l220-adjustment-program": "l130-l220-l310-l360-l365.zip",
+    "epson-l310-adjustment-program": "l130-l220-l310-l360-l365.zip",
+    "epson-l360-adjustment-program": "l130-l220-l310-l360-l365.zip",
+    "epson-l365-adjustment-program": "l130-l220-l310-l360-l365.zip",
+    "epson-l200-adjustment-program": "l200.zip",
+}
+
 _db_lock = threading.Lock()
 _oauth_token = None
 _oauth_expiry = 0
@@ -87,6 +100,24 @@ def db_connect():
     connection = sqlite3.connect(DB_PATH, timeout=15)
     connection.row_factory = sqlite3.Row
     return connection
+
+
+def product_archive(slug):
+    filename = PRODUCT_ARCHIVES.get(slug, f"{slug}.zip")
+    archive = (ZIP_DIR / filename).resolve()
+    if archive.parent != ZIP_DIR:
+        raise ValueError("The configured product archive path is invalid.")
+    return archive
+
+
+def is_supported_archive(archive):
+    if zipfile.is_zipfile(archive):
+        return True
+    try:
+        with archive.open("rb") as source:
+            return source.read(6) == b"Rar!\x1a\x07"
+    except OSError:
+        return False
 
 
 @contextmanager
@@ -211,7 +242,7 @@ def send_delivery_email(order):
     message["From"] = sender
     message["To"] = order["email"]
     message.set_content(
-        "Thank you for your Epson Centre order. Your purchased digital product ZIP file(s) "
+        "Thank you for your Epson Centre order. Your purchased digital product archive(s) "
         "are attached to this email.\n\n"
         "Keep this email for your records. If you need assistance, contact the support address "
         "published on the Epson Centre website."
@@ -221,21 +252,17 @@ def send_delivery_email(order):
     archives = {}
     for item in items:
         slug = item["slug"]
-        archive = (ZIP_DIR / f"{slug}.zip").resolve()
-        if archive.parent != ZIP_DIR or not archive.is_file():
-            raise RuntimeError(f"The purchased ZIP archive is not available for {slug}.")
-        if not zipfile.is_zipfile(archive):
-            raise RuntimeError(f"The purchased archive for {slug} is not a valid ZIP file.")
-        archives[slug] = archive
+        archive = product_archive(slug)
+        if not archive.is_file():
+            raise RuntimeError(f"The purchased product archive is not available for {slug}.")
+        if not is_supported_archive(archive):
+            raise RuntimeError(f"The purchased archive for {slug} is not a supported ZIP or RAR file.")
+        archives[archive.name] = archive
     if sum(archive.stat().st_size for archive in archives.values()) > MAX_EMAIL_ATTACHMENTS:
-        raise RuntimeError("The product ZIP files exceed the email attachment size limit.")
-    for slug, archive in archives.items():
-        message.add_attachment(
-            archive.read_bytes(),
-            maintype="application",
-            subtype="zip",
-            filename=f"{slug}.zip",
-        )
+        raise RuntimeError("The product archives exceed the email attachment size limit.")
+    for archive_name, archive in archives.items():
+        subtype = "vnd.rar" if archive.suffix.lower() == ".rar" else "zip"
+        message.add_attachment(archive.read_bytes(), maintype="application", subtype=subtype, filename=archive_name)
 
     port = int(os.environ.get("SMTP_PORT", "587"))
     with smtplib.SMTP(host, port, timeout=30) as smtp:
@@ -454,7 +481,7 @@ class EpsonCentreHandler(BaseHTTPRequestHandler):
                     "deliveryStatus": row["delivery_status"],
                     "method": row["method"],
                     "message": (
-                        "Payment confirmed and the ZIP file has been emailed."
+                        "Payment confirmed and the product archive has been emailed."
                         if row["status"] == "paid" and row["delivery_status"] == "sent"
                         else "Payment confirmed. Email delivery is being completed."
                         if row["status"] == "paid"
@@ -506,18 +533,18 @@ class EpsonCentreHandler(BaseHTTPRequestHandler):
             quantity = entry.get("quantity")
             if slug not in PRODUCTS or isinstance(quantity, bool) or not isinstance(quantity, int) or not 1 <= quantity <= 10:
                 raise ValueError("The cart contains an invalid product or quantity.")
-            archive = (ZIP_DIR / f"{slug}.zip").resolve()
-            if archive.parent != ZIP_DIR or not archive.is_file():
-                raise ValueError(f"The ZIP archive for Epson {PRODUCTS[slug]} is not installed yet. No payment has been started.")
-            if not zipfile.is_zipfile(archive):
-                raise ValueError(f"The ZIP archive for Epson {PRODUCTS[slug]} is invalid. No payment has been started.")
+            archive = product_archive(slug)
+            if not archive.is_file():
+                raise ValueError(f"The product archive for Epson {PRODUCTS[slug]} is not installed yet. No payment has been started.")
+            if not is_supported_archive(archive):
+                raise ValueError(f"The archive for Epson {PRODUCTS[slug]} is invalid. No payment has been started.")
             items.append({"slug": slug, "model": PRODUCTS[slug], "quantity": quantity})
         archive_sizes = {
-            slug: (ZIP_DIR / f"{slug}.zip").stat().st_size
-            for slug in {item["slug"] for item in items}
+            archive.name: archive.stat().st_size
+            for archive in (product_archive(slug) for slug in {item["slug"] for item in items})
         }
         if sum(archive_sizes.values()) > MAX_EMAIL_ATTACHMENTS:
-            raise ValueError("The selected ZIP files are too large to deliver by email.")
+            raise ValueError("The selected product archives are too large to deliver by email.")
         total_cents = sum(item["quantity"] * USD_PRICE_CENTS for item in items)
         if total_cents > 100000:
             raise ValueError("The maximum order total is $1,000.")

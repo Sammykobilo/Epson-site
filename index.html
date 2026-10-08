@@ -977,7 +977,7 @@
       { q: 'Do adjustment programs guarantee that a printer issue will be fixed?', a: 'No. They are best used as a support and research resource after checking the printer’s actual state, current warnings, and service documentation.' },
       { q: 'Can I search by model number?', a: 'Yes. The search field supports model variations such as L3110, Epson L3110, and the related phrase “Epson L3110 resetter.”' },
       { q: 'What should I verify before purchasing?', a: 'Confirm the exact printer model, current error symptoms, and whether the guidance is relevant to your printer setup and support needs.' },
-      { q: 'How is delivery handled?', a: 'After payment is confirmed, the product ZIP file is emailed to the address entered at checkout.' },
+      { q: 'How is delivery handled?', a: 'After payment is confirmed, the product archive is emailed to the address entered at checkout.' },
       { q: 'Are prices shown on the product lists?', a: 'No. The pricing rule is to show the $10 price only on individual product pages, in the cart, and during checkout.' }
     ];
 
@@ -2055,7 +2055,7 @@
             <form class="checkout-layout" onsubmit="startCheckout(event)">
               <section class="panel">
                 <h3>Customer details</h3>
-                <p class="text-muted">Your purchased ZIP file will be sent to this email after payment is confirmed.</p>
+                <p class="text-muted">Your purchased product archive will be sent to this email after payment is confirmed.</p>
                 <div class="two-col">
                   <div><label for="checkout-name">Full name</label><input id="checkout-name" name="name" type="text" autocomplete="name" required maxlength="120" style="margin-top:0.5rem; width:100%; height:44px; border:1px solid var(--line); border-radius:10px; padding:0 0.9rem;" /></div>
                   <div><label for="checkout-email">Email address</label><input id="checkout-email" name="email" type="email" autocomplete="email" required maxlength="254" style="margin-top:0.5rem; width:100%; height:44px; border:1px solid var(--line); border-radius:10px; padding:0 0.9rem;" /></div>
@@ -2202,7 +2202,7 @@
         privacy: { title: 'Privacy Policy', content: 'Epson Centre respects the privacy of visitors and customers. We collect only the information necessary to fulfill product support requests, facilitate digital delivery, and improve user experience. Personal data is not sold or shared without clear consent.' },
         terms: { title: 'Terms and Conditions', content: 'These terms govern use of the Epson Centre website and all related support resources. Users are expected to use the support information responsibly and confirm the model and product details relevant to their printer before acting.' },
         refund: { title: 'Refund Policy', content: 'Digital products are non-physical items and are generally not returned in the usual sense. Refund requests should be reviewed according to the product delivery and support circumstances described in the policy and order details.' },
-        delivery: { title: 'Digital Product Delivery Policy', content: 'After the payment provider confirms a successful payment, Epson Centre emails the ZIP archive for each purchased product to the email address entered at checkout. Make sure the address is accurate and can receive attachments. Delivery depends on the archive being available and email service being operational.' }
+        delivery: { title: 'Digital Product Delivery Policy', content: 'After the payment provider confirms a successful payment, Epson Centre emails the product archive for each purchased program to the email address entered at checkout. Archive format can vary by program. Make sure the address is accurate and can receive attachments. Delivery depends on the archive being available and email service being operational.' }
       };
       const item = policies[kind];
       return `
