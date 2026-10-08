@@ -7,6 +7,7 @@
   <meta property="og:type" content="website">
   <meta property="og:title" content="Epson Centre | Epson Resetter & Adjustment Programs">
   <meta property="og:description" content="Epson printer troubleshooting, waste ink counter guidance, and model-specific support resources.">
+  <link rel="canonical" href="https://epson-site.vercel.app/">
   <meta name="theme-color" content="#f8f6f3">
   <title>Epson Centre | Epson Resetter & Adjustment Programs</title>
   <style>
@@ -986,7 +987,7 @@
       { label: 'Printer Models', href: '#/models' },
       { label: 'How to Reset', href: '#/how-to-reset' },
       { label: 'Troubleshooting', href: '#/troubleshooting' },
-      { label: 'Blog', href: '#/blog' },
+      { label: 'Blog', href: '/blog/' },
       { label: 'FAQ', href: '#/faq' }
     ];
 
@@ -1060,6 +1061,10 @@
       document.querySelector('meta[property="og:type"]').setAttribute('content', post ? 'article' : 'website');
       document.querySelector('meta[property="og:title"]').setAttribute('content', title);
       document.querySelector('meta[property="og:description"]').setAttribute('content', description);
+      document.querySelector('link[rel="canonical"]').setAttribute(
+        'href',
+        post ? `${window.location.origin}/blog/${post.slug}/` : `${window.location.origin}/`
+      );
 
       const existingSchema = document.getElementById('blog-structured-data');
       if (existingSchema) existingSchema.remove();
@@ -1173,7 +1178,7 @@
           <p>${post.excerpt}</p>
           <time class="article-date" datetime="${post.date}">${formatBlogDate(post.date)}</time>
           <div class="card-actions">
-            <a class="inline-button" href="#/blog/${post.slug}">Read More</a>
+            <a class="inline-button" href="/blog/${post.slug}/">Read More</a>
           </div>
         </article>
       `).join('');
@@ -1420,7 +1425,7 @@
 
       blogPosts.forEach((post) => {
         if ((post.title + ' ' + post.excerpt).toLowerCase().includes(searchLower)) {
-          matches.push({ type: 'blog', title: post.title, description: post.excerpt, href: '#/blog/' + post.slug });
+          matches.push({ type: 'blog', title: post.title, description: post.excerpt, href: '/blog/' + post.slug + '/' });
         }
       });
 
@@ -1792,7 +1797,7 @@
                 <div class="result-grid">
                   ${product.relatedBlog.map((slug) => {
                     const item = blogPosts.find((post) => post.slug === slug);
-                    return item ? `<div><a href="#/blog/${item.slug}">${item.title}</a></div>` : '';
+                    return item ? `<div><a href="/blog/${item.slug}/">${item.title}</a></div>` : '';
                   }).join('')}
                 </div>
               </div>
@@ -1824,7 +1829,7 @@
                 <p>${post.excerpt}</p>
                 <time class="article-date" datetime="${post.date}">${formatBlogDate(post.date)}</time>
                 <div class="card-actions">
-                  <a class="inline-button" href="#/blog/${post.slug}">Read More</a>
+                  <a class="inline-button" href="/blog/${post.slug}/">Read More</a>
                 </div>
               </article>
             `).join('')}
@@ -1838,7 +1843,7 @@
       if (!post) return renderNotFound();
       return `
         <div class="container page-wrap">
-          <div class="breadcrumb"><a href="#/">Home</a> <span class="sep">/</span> <a href="#/blog">Blog</a> <span class="sep">/</span> <span>${post.title}</span></div>
+          <div class="breadcrumb"><a href="/">Home</a> <span class="sep">/</span> <a href="/blog/">Blog</a> <span class="sep">/</span> <span>${post.title}</span></div>
           <article class="panel" style="max-width: 900px; margin: 0 auto;">
             <div class="section-kicker">${post.category}</div>
             <h1>${post.title}</h1>
@@ -2292,7 +2297,7 @@
                 <h4>Resources</h4>
                 <div class="footer-links">
                   <a href="#/troubleshooting">Troubleshooting</a>
-                  <a href="#/blog">Blog</a>
+                  <a href="/blog/">Blog</a>
                   <a href="#/about">About Us</a>
                   <a href="#/contact">Contact Us</a>
                 </div>

@@ -399,6 +399,43 @@ class EpsonCentreHandler(BaseHTTPRequestHandler):
             self.end_headers()
             self.wfile.write(body)
             return
+        if parsed.path in ("/sitemap.xml", "/robots.txt"):
+            try:
+                body = (ROOT / parsed.path.lstrip("/")).read_bytes()
+            except OSError:
+                self.send_error(404)
+                return
+            content_type = "application/xml; charset=utf-8" if parsed.path.endswith(".xml") else "text/plain; charset=utf-8"
+            self.send_response(200)
+            self.send_header("Content-Type", content_type)
+            self.send_header("Content-Length", str(len(body)))
+            self.end_headers()
+            self.wfile.write(body)
+            return
+        if parsed.path == "/blog" or re.fullmatch(r"/blog/[a-z0-9-]+", parsed.path):
+            self.send_response(301)
+            self.send_header("Location", parsed.path + "/" + (f"?{parsed.query}" if parsed.query else ""))
+            self.end_headers()
+            return
+        if parsed.path.startswith("/blog/"):
+            blog_root = (ROOT / "blog").resolve()
+            page_path = (ROOT / parsed.path.lstrip("/")).resolve()
+            if parsed.path.endswith("/"):
+                page_path = page_path / "index.html"
+            if blog_root not in page_path.parents or page_path.suffix != ".html":
+                self.send_error(404)
+                return
+            try:
+                body = page_path.read_bytes()
+            except OSError:
+                self.send_error(404)
+                return
+            self.send_response(200)
+            self.send_header("Content-Type", "text/html; charset=utf-8")
+            self.send_header("Content-Length", str(len(body)))
+            self.end_headers()
+            self.wfile.write(body)
+            return
         match = re.fullmatch(r"/api/orders/([0-9a-f-]{36})", parsed.path)
         if match:
             with db_session() as db:
