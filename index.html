@@ -37,7 +37,7 @@
     a { color: inherit; text-decoration: none; }
     img { max-width: 100%; display: block; }
     button, input, textarea { font: inherit; }
-    .container { width: min(1200px, calc(100% - 40px)); margin: 0 auto; }
+    .container { width: min(1440px, calc(100% - 48px)); margin: 0 auto; }
     .topbar {
       background: #101213;
       color: #f3f0ed;
@@ -234,12 +234,12 @@
       min-height: 0;
       display: grid;
       align-items: center;
-      padding: 64px 0;
+      padding: 48px 0;
     }
     .hero-grid {
       display: grid;
-      grid-template-columns: minmax(0, 820px);
-      justify-content: center;
+      grid-template-columns: minmax(0, 1fr);
+      justify-content: start;
       align-items: center;
     }
     .hero-grid > div { width: 100%; }
@@ -261,7 +261,7 @@
       line-height: 1.12;
       letter-spacing: -0.04em;
     }
-    h1 { font-size: clamp(2.8rem, 5vw, 5rem); }
+    h1 { font-size: clamp(2.5rem, 4.5vw, 4.25rem); }
     h2 { font-size: clamp(2rem, 2.8vw, 3rem); }
     h3 { font-size: clamp(1.3rem, 2vw, 1.8rem); }
     .hero p {
@@ -309,14 +309,14 @@
       font-weight: 600;
     }
     .section {
-      padding: 90px 0;
+      padding: 56px 0;
     }
     .section-head {
       display: flex;
       align-items: end;
       justify-content: space-between;
       gap: 16px;
-      margin-bottom: 2rem;
+      margin-bottom: 1.35rem;
     }
     .section-kicker {
       display: inline-block;
@@ -331,19 +331,18 @@
     .grid-3 {
       display: grid;
       grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 1.25rem;
+      gap: 1rem;
     }
     .grid-4 { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 1rem; }
     .card {
       background: var(--paper);
       border: 1px solid var(--line);
       border-radius: var(--radius);
-      padding: 1.35rem;
+      padding: 1.15rem;
       box-shadow: 0 4px 18px rgba(16,24,39,0.02);
     }
     .model-card {
-      padding: 1.25rem;
-      min-height: 220px;
+      padding: 1.1rem;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
@@ -386,17 +385,17 @@
       gap: 1.2rem;
     }
     .support-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
-    .feature-card { padding: 1.4rem; }
+    .feature-card { padding: 1.15rem; }
     .feature-icon {
-      width: 48px;
-      height: 48px;
+      width: 44px;
+      height: 44px;
       display: grid;
       place-items: center;
       border-radius: 14px;
       background: #fff2f2;
       color: var(--accent-strong);
       font-size: 1.4rem;
-      margin-bottom: 1rem;
+      margin-bottom: 0.75rem;
     }
     .blog-grid, .faq-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
     .blog-card { padding: 1.3rem; }
@@ -424,7 +423,7 @@
       background: linear-gradient(135deg, #1c1d22, #2d2d34);
       color: white;
       border-radius: 24px;
-      padding: 2.2rem;
+      padding: 1.6rem;
     }
     .cta-inner {
       display: flex;
@@ -435,7 +434,7 @@
     }
     .cta p { margin: 0; color: rgba(255,255,255,.8); }
     .page-wrap {
-      padding: 52px 0 90px;
+      padding: 40px 0 64px;
     }
     .breadcrumb {
       display: flex;
@@ -732,7 +731,7 @@
       .header-inner { gap: 10px; }
     }
     @media (max-width: 640px) {
-      .container { width: min(100% - 24px, 1200px); }
+      .container { width: min(100% - 24px, 1440px); }
       .header-inner { min-height: 72px; }
       .brand { gap: 8px; flex-shrink: 0; }
       .brand-mark { width: 36px; height: 36px; }
@@ -742,7 +741,7 @@
       .search-form { flex: 1; min-width: 0; max-width: none; padding-left: 10px; }
       .search-form input { width: 0; }
       .icon-button { flex-shrink: 0; }
-      .hero-inner { padding: 32px 0; }
+      .hero-inner { padding: 28px 0; }
       .hero h1 { font-size: clamp(2.1rem, 10vw, 2.7rem); }
       .hero p { font-size: 0.95rem; margin-bottom: 1rem; }
       .eyebrow { padding: 0.38rem 0.65rem; margin-bottom: 0.8rem; }
@@ -765,7 +764,8 @@
       .hero-stats {
         grid-template-columns: 1fr;
       }
-      .section { padding: 70px 0; }
+      .section { padding: 40px 0; }
+      .page-wrap { padding: 32px 0 48px; }
       .section-head { display: block; }
       .card-actions, .action-row { display: grid; }
       .button, .secondary-button, .inline-button { width: 100%; }
@@ -1125,13 +1125,15 @@
     }
 
     function renderHome() {
-      const popular = ['L3110', 'L3111', 'L3150', 'L3115', 'L3116', 'L130', 'L220', 'L360'];
-      const productCards = products.slice(0, 6).map((product) => `
+      const availableProgramModels = ['TX550W', 'SX510W', 'L3110', 'L3111', 'L130', 'L220', 'L310', 'L360', 'L365', 'L375', 'L200'];
+      const availablePrograms = availableProgramModels
+        .map((model) => products.find((product) => product.model === model))
+        .filter(Boolean);
+      const productCards = availablePrograms.map((product) => `
         <article class="card model-card">
           <div>
-            <span class="meta-pill">Epson ${product.model}</span>
+            <span class="meta-pill">Program available</span>
             <h3>${product.name}</h3>
-            <p>${product.short}</p>
           </div>
           <div class="card-actions">
             <a class="button small" href="#/products/${product.slug}">View Program</a>
@@ -1172,7 +1174,7 @@
                     <button class="button" type="submit">Search</button>
                   </form>
                   <div class="popular-links">
-                    ${popular.map((model) => `<a class="pop-chip" href="#/search?q=${encodeURIComponent('Epson ' + model)}">Epson ${model}</a>`).join('')}
+                    ${availablePrograms.map((product) => `<a class="pop-chip" href="#/products/${product.slug}">Epson ${product.model}</a>`).join('')}
                   </div>
                 </div>
               </div>
@@ -1184,8 +1186,8 @@
               <div class="container">
                 <div class="section-head">
                   <div>
-                    <div class="section-kicker">Popular printer models</div>
-                    <h2>Explore key Epson model support pages</h2>
+                    <div class="section-kicker">Programs with files available</div>
+                    <h2>Explore supported Epson printer models</h2>
                   </div>
                 </div>
                 <div class="grid-3">
