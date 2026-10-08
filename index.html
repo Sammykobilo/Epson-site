@@ -231,17 +231,18 @@
       overflow: hidden;
     }
     .hero-inner {
-      min-height: 540px;
+      min-height: 0;
       display: grid;
       align-items: center;
-      padding: 80px 0 70px;
+      padding: 64px 0;
     }
     .hero-grid {
       display: grid;
-      grid-template-columns: 1.2fr 0.8fr;
-      gap: 30px;
+      grid-template-columns: minmax(0, 820px);
+      justify-content: center;
       align-items: center;
     }
+    .hero-grid > div { width: 100%; }
     .eyebrow {
       display: inline-block;
       padding: 0.48rem 0.8rem;
@@ -306,44 +307,6 @@
       color: rgba(255,255,255,.92);
       font-size: 0.83rem;
       font-weight: 600;
-    }
-    .hero-card {
-      background: rgba(255,255,255,0.1);
-      border: 1px solid rgba(255,255,255,0.18);
-      border-radius: 22px;
-      padding: 1.5rem;
-      box-shadow: var(--shadow);
-    }
-    .hero-card small {
-      display: block;
-      color: rgba(255,255,255,.8);
-      text-transform: uppercase;
-      letter-spacing: 0.12em;
-      font-size: 0.68rem;
-      margin-bottom: 0.8rem;
-    }
-    .hero-stats {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 1rem;
-      margin-top: 1rem;
-    }
-    .hero-stat {
-      background: rgba(255,255,255,0.08);
-      border: 1px solid rgba(255,255,255,0.12);
-      border-radius: 16px;
-      padding: 1rem;
-    }
-    .hero-stat strong {
-      display: block;
-      font-size: 2rem;
-      font-weight: 800;
-      letter-spacing: -0.08em;
-      margin-bottom: 0.2rem;
-    }
-    .hero-stat span {
-      color: rgba(255,255,255,.78);
-      font-size: 0.8rem;
     }
     .section {
       padding: 90px 0;
@@ -779,9 +742,14 @@
       .search-form { flex: 1; min-width: 0; max-width: none; padding-left: 10px; }
       .search-form input { width: 0; }
       .icon-button { flex-shrink: 0; }
-      .hero-inner { padding-top: 60px; }
+      .hero-inner { padding: 32px 0; }
+      .hero h1 { font-size: clamp(2.1rem, 10vw, 2.7rem); }
+      .hero p { font-size: 0.95rem; margin-bottom: 1rem; }
+      .eyebrow { padding: 0.38rem 0.65rem; margin-bottom: 0.8rem; }
       .hero-search { display: block; }
       .hero-search input { width: 100%; max-width: none; margin-bottom: 10px; }
+      .popular-links { gap: 7px; margin-top: 0.4rem; }
+      .pop-chip { padding: 0.45rem 0.7rem; font-size: 0.76rem; }
       .grid-3,
       .grid-4,
       .support-grid,
@@ -1207,28 +1175,6 @@
                     ${popular.map((model) => `<a class="pop-chip" href="#/search?q=${encodeURIComponent('Epson ' + model)}">Epson ${model}</a>`).join('')}
                   </div>
                 </div>
-                <aside class="hero-card" aria-label="Support overview">
-                  <small>Support overview</small>
-                  <h3>Everything you need for Epson printer maintenance and service review</h3>
-                  <div class="hero-stats">
-                    <div class="hero-stat">
-                      <strong>21</strong>
-                      <span>Model-specific programs</span>
-                    </div>
-                    <div class="hero-stat">
-                      <strong>${blogPosts.length}</strong>
-                      <span>Blog updates</span>
-                    </div>
-                    <div class="hero-stat">
-                      <strong>24/7</strong>
-                      <span>Helpful support shortcuts</span>
-                    </div>
-                    <div class="hero-stat">
-                      <strong>100%</strong>
-                      <span>Digital product delivery</span>
-                    </div>
-                  </div>
-                </aside>
               </div>
             </div>
           </section>
