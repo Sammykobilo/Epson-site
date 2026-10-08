@@ -4,6 +4,9 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="Epson Centre offers Epson resetter programs, printer troubleshooting guides, adjustment software, and supportive resources for Epson printer maintenance.">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Epson Centre | Epson Resetter & Adjustment Programs">
+  <meta property="og:description" content="Epson printer troubleshooting, waste ink counter guidance, and model-specific support resources.">
   <meta name="theme-color" content="#f8f6f3">
   <title>Epson Centre | Epson Resetter & Adjustment Programs</title>
   <style>
@@ -829,10 +832,136 @@
     ];
 
     const blogPosts = [
-      { slug: 'how-to-reset-epson-l3110', title: 'How to Reset Epson L3110', excerpt: 'A straightforward overview of how to understand Epson L3110 service-related maintenance issues and what to verify before acting.', date: 'April 17, 2026', category: 'Reset Guides' },
-      { slug: 'waste-ink-counter-what-it-means', title: 'Waste Ink Counter: What It Means', excerpt: 'Learn what a waste ink counter warning usually represents and how to review your Epson printer’s service status responsibly.', date: 'April 08, 2026', category: 'Maintenance' },
-      { slug: 'printer-maintenance-checklist', title: 'Printer Maintenance Checklist', excerpt: 'Keep your Epson printer in better working order with a practical maintenance routine focused on prevention and monitoring.', date: 'March 29, 2026', category: 'Tips' },
-      { slug: 'common-epson-error-messages', title: 'Common Epson Error Messages', excerpt: 'A practical overview of the kinds of Epson warning states owners often encounter and how to assess them.', date: 'March 17, 2026', category: 'Troubleshooting' }
+      {
+        slug: 'how-to-reset-epson-l3110',
+        title: 'Epson L3110 Resetter: Understand the Waste Ink Pad Counter',
+        excerpt: 'Learn what an Epson L3110 resetter does, how to check the printer model and warning, and why the waste ink pad needs physical service before a counter reset.',
+        date: '2026-04-17',
+        category: 'Epson L3110',
+        sections: [
+          { heading: 'What an Epson L3110 resetter is for', paragraphs: ['People searching for an Epson L3110 resetter or adjustment program are often seeing a service-required message or a waste ink pad counter warning. An adjustment utility can expose model-specific service functions, but it does not repair a worn or saturated ink pad. Treat a counter reset as one part of a maintenance job, not as a substitute for inspection.'] },
+          { heading: 'Check the model and symptom first', paragraphs: ['Read the model label on the printer and compare it with the utility documentation. L3110 instructions are not automatically valid for an L3111, L3150, or another Epson model. Record the exact message, check for paper or ink-related faults, and review recent cleaning or maintenance activity before choosing a service path.'], bullets: ['Confirm the printer is specifically an Epson L3110.', 'Write down the exact warning and when it appears.', 'Check whether the waste ink pad has been inspected, cleaned, or replaced.'] },
+          { heading: 'Service the pad before resetting a counter', paragraphs: ['Waste ink is collected inside the printer during cleaning and other operations. If the pad requires service, arrange appropriate inspection and servicing or replacement before resetting its protection counter. Follow the utility prompts and the printer service guidance for the exact unit; do not assume a software reset clears the physical ink.'] }
+        ],
+        faq: { question: 'Does an Epson L3110 resetter physically clean the waste ink pad?', answer: 'No. A utility can change supported service counters, but it cannot clean or replace the physical pad. Have the pad inspected and serviced as appropriate before resetting a counter.' }
+      },
+      {
+        slug: 'waste-ink-counter-what-it-means',
+        title: 'Epson Waste Ink Pad Counter Warning: What It Means',
+        excerpt: 'Understand Epson waste ink counter warnings, what a protection counter tracks, and the safe checks to make before considering a reset.',
+        date: '2026-02-08',
+        category: 'Waste Ink Counter',
+        sections: [
+          { heading: 'What is the Epson waste ink counter?', paragraphs: ['An Epson waste ink pad counter is a service-related record associated with ink collected inside the printer during operations such as print-head cleaning. A warning may indicate that the printer has reached a maintenance threshold. It is a prompt to investigate service needs, not proof that every printer has the same physical condition.'] },
+          { heading: 'Why you should not ignore the warning', paragraphs: ['The waste ink absorber is a physical component. If it is saturated or leaking, continuing to operate the printer after merely clearing a counter may create ink leakage or other damage. Check the message against the printer manual or qualified service advice and ask for a pad inspection where needed.'] },
+          { heading: 'What to check before an Epson counter reset', paragraphs: ['Confirm the exact model, the full message, and the history of maintenance. If the service procedure requires a counter initialization, make sure the relevant physical maintenance has been completed first and that the chosen adjustment utility explicitly supports your model.'] }
+        ],
+        faq: { question: 'Can I reset the Epson waste ink pad counter without replacing the pad?', answer: 'Do not assume that is safe. First confirm the pad condition and the model-specific service procedure. A counter reset does not perform physical pad service.' }
+      },
+      {
+        slug: 'printer-maintenance-checklist',
+        title: 'Epson Printer Maintenance Checklist: Simple Care Tips',
+        excerpt: 'Use this practical Epson printer maintenance checklist for print quality, paper handling, ink, connectivity, and service warning checks.',
+        date: '2025-10-19',
+        category: 'Printer Maintenance',
+        sections: [
+          { heading: 'A simple routine for Epson printer care', paragraphs: ['Regular, gentle checks can help identify common Epson printer problems early. Keep the printer on a stable, level surface, follow the manual for ventilation and cleaning, and use compatible supplies. Avoid opening panels or cleaning internal parts unless the model instructions explain how to do so safely.'] },
+          { heading: 'Print quality and paper checks', paragraphs: ['When output has missing lines, banding, or incorrect colors, print a nozzle check before running repeated cleaning cycles. Use the printer utility recommendations and allow the device to rest between cleanings. For paper jams, remove paper only as directed and check the paper path for scraps before restarting.'], bullets: ['Inspect paper for curl, moisture, or damage.', 'Load the supported size and type with guides positioned correctly.', 'Use a nozzle check to help distinguish print-head symptoms from document or driver issues.'] },
+          { heading: 'Keep service information', paragraphs: ['Save the exact Epson model, error wording, date of the last service, and any changes made to the computer or network. These details make it easier to troubleshoot printer offline messages, print quality issues, and maintenance alerts without repeating unnecessary steps.'] }
+        ],
+        faq: { question: 'How often should I clean an Epson printer?', answer: 'Use the maintenance schedule and cleaning instructions for your specific model. Avoid unnecessary print-head cleaning because repeated cycles consume ink.' }
+      },
+      {
+        slug: 'common-epson-error-messages',
+        title: 'Common Epson Printer Errors: Troubleshooting Before Service',
+        excerpt: 'A practical guide to Epson printer error messages, offline states, paper-feed problems, and maintenance alerts—and what to record before service.',
+        date: '2025-04-12',
+        category: 'Epson Troubleshooting',
+        sections: [
+          { heading: 'Start with the exact Epson error message', paragraphs: ['“Epson printer error” can describe many unrelated conditions. Note the complete message or status-light pattern, the printer model, and what was happening when the issue began. A printer offline message, paper jam, ink warning, and service-required alert need different troubleshooting paths.'] },
+          { heading: 'Try basic checks before changing settings', paragraphs: ['Check power, cables or Wi-Fi, paper loading, and the print queue. Restart the printer and computer only after saving any important print job. If a warning returns, record it instead of repeatedly clearing alerts or running maintenance functions that do not match the symptom.'] },
+          { heading: 'When to request service', paragraphs: ['Persistent mechanical noise, ink leakage, repeated paper-feed failure, or a service-required message may need hands-on diagnosis. Consult the exact model manual or a qualified technician. Do not use an adjustment utility intended for another model or treat a software counter operation as a universal repair.'] }
+        ],
+        faq: { question: 'Should I download an Epson adjustment program to fix any printer error?', answer: 'No. First identify the exact symptom and model. Adjustment utilities are model- and task-specific and are not a universal fix for connectivity, paper, ink, or hardware problems.' }
+      },
+      {
+        slug: 'epson-printer-offline-wifi-usb',
+        title: 'Epson Printer Offline? Wi-Fi and USB Troubleshooting Steps',
+        excerpt: 'Fix common Epson printer offline problems by checking the connection, device selection, print queue, and network before reinstalling software.',
+        date: '2024-11-03',
+        category: 'Connectivity',
+        sections: [
+          { heading: 'Check whether the Epson printer is connected', paragraphs: ['For a USB printer, reseat the cable at both ends and try a direct computer port rather than a hub. For Wi-Fi, confirm the printer and computer are on the intended network and that the router is working. A changed network name or password can leave the printer visible but unreachable.'] },
+          { heading: 'Check the computer print queue', paragraphs: ['Make sure the Epson model you intend to use is selected as the active printer. Clear paused or stuck jobs only after confirming they are not needed, and check that the device is not set to “Use Printer Offline” in the operating system. Restart the print spooler or computer only if standard queue controls do not clear the state.'] },
+          { heading: 'Reconnect carefully', paragraphs: ['If the printer remains offline, follow the wireless setup steps for the exact Epson model and current operating system. Reinstalling a driver may help when the installed driver is damaged, but first confirm you have the correct model and official driver source.'] }
+        ],
+        faq: { question: 'Why does my Epson printer keep going offline?', answer: 'Common causes include a lost Wi-Fi connection, a changed router or network password, a paused print queue, the wrong selected printer, or a USB connection problem.' }
+      },
+      {
+        slug: 'epson-paper-jam-no-paper-error',
+        title: 'Epson Printer Says Paper Jam but There Is No Paper',
+        excerpt: 'Troubleshoot an Epson paper jam or “no paper” error by checking the paper path, feed rollers, loading, and model-specific instructions.',
+        date: '2024-05-26',
+        category: 'Paper Feed',
+        sections: [
+          { heading: 'Inspect the Epson paper path safely', paragraphs: ['Turn the printer off before checking accessible areas, and follow the manual for opening covers. Remove visible paper slowly in the direction of the feed path. Look for small torn scraps, labels, or foreign objects that can keep a paper sensor from returning to its normal position.'] },
+          { heading: 'Check paper loading and size settings', paragraphs: ['Fan and align the stack, avoid exceeding the tray limit, and adjust the paper guides so they touch the stack without bending it. Confirm that the paper size selected in the print dialog matches the paper loaded. Damp, curled, or very thin paper can feed inconsistently.'] },
+          { heading: 'If the error returns', paragraphs: ['Do not force a tool or your fingers into inaccessible rollers. A worn roller, obstructed sensor, or damaged mechanism may need professional attention. Record the exact Epson model and error pattern before requesting service.'] }
+        ],
+        faq: { question: 'Can a paper sensor cause an Epson jam error with no paper visible?', answer: 'Yes. A small paper fragment or a sensor/feed issue can trigger a jam message even when the main paper path looks clear. Follow model-specific instructions and seek service if it persists.' }
+      },
+      {
+        slug: 'epson-nozzle-check-print-head-cleaning',
+        title: 'Epson Nozzle Check and Print Head Cleaning: When to Use Each',
+        excerpt: 'Learn how an Epson nozzle check helps identify missing print lines and when a print-head cleaning cycle may be appropriate.',
+        date: '2023-12-09',
+        category: 'Print Quality',
+        sections: [
+          { heading: 'Run a nozzle check before cleaning', paragraphs: ['A nozzle check prints a small pattern that can reveal missing segments, banding, or gaps. It helps you decide whether print-head cleaning is relevant instead of running maintenance by guesswork. Use the printer driver or control panel steps listed for your Epson model.'] },
+          { heading: 'Use print-head cleaning in moderation', paragraphs: ['If the nozzle pattern shows gaps, follow the recommended cleaning cycle and print another nozzle check afterward. Cleaning consumes ink, so avoid repeating it many times in a row. If print quality does not improve after the model-recommended steps and rest period, consult the manual or service support.'] },
+          { heading: 'Rule out other print quality causes', paragraphs: ['Check paper type, print settings, ink status, and whether the problem appears in every document. A low-resolution source image or incorrect paper setting can look like a printer fault even when the nozzle pattern is normal.'] }
+        ],
+        faq: { question: 'How many times should I run Epson print-head cleaning?', answer: 'Follow the limit and rest period in the instructions for your printer. Repeated cleaning uses ink and may not resolve a hardware or ink-delivery issue.' }
+      },
+      {
+        slug: 'epson-service-required-error-meaning',
+        title: 'Epson Service Required Error: Meaning and Next Checks',
+        excerpt: 'Understand what an Epson service required message may indicate, how to identify the exact model and error, and when professional maintenance is appropriate.',
+        date: '2023-06-18',
+        category: 'Service Error',
+        sections: [
+          { heading: 'What does “Service Required” mean on an Epson printer?', paragraphs: ['The wording can refer to a maintenance condition or another service issue, depending on the exact printer and message. It is not enough information by itself to identify a failed component. Record the full display text, indicator lights, and model number before following any instructions.'] },
+          { heading: 'Check for related symptoms', paragraphs: ['Look for paper feed problems, unusual sounds, visible ink leakage, or recent maintenance history. If the warning appeared after repeated cleaning or another maintenance operation, include that detail when consulting support. Do not keep printing if there is visible leakage or a mechanical concern.'] },
+          { heading: 'Choose a model-specific service path', paragraphs: ['Check Epson documentation for the exact model and symptom. A waste ink pad counter warning, if confirmed, calls for assessment of the physical absorber as well as any supported counter procedure. A resetter cannot diagnose every service-required condition.'] }
+        ],
+        faq: { question: 'Does “Service Required” always mean the waste ink pad is full?', answer: 'Not necessarily. The meaning depends on the printer model and diagnostic message. Verify the exact error and consult model-specific support information.' }
+      },
+      {
+        slug: 'epson-l3150-wifi-setup-printing',
+        title: 'Epson L3150 Wi-Fi Setup: Connect and Print Troubleshooting',
+        excerpt: 'A practical Epson L3150 wireless setup checklist covering network details, device pairing, driver selection, and common printing connection issues.',
+        date: '2022-11-20',
+        category: 'Epson L3150',
+        sections: [
+          { heading: 'Prepare the Epson L3150 for wireless setup', paragraphs: ['Have the Wi-Fi network name and password ready, place the printer within reliable router range, and confirm the router is online. Use the setup method documented for the L3150 and your computer or mobile device; button sequences and software options can vary by platform.'] },
+          { heading: 'Confirm printer and computer use the same network', paragraphs: ['After setup, verify that the printer is connected to the intended network and that the computer has selected the Epson L3150 rather than an old or duplicate queue. Guest networks and client isolation can prevent devices from discovering one another even when both appear connected to Wi-Fi.'] },
+          { heading: 'Fix common Epson L3150 connection problems', paragraphs: ['If the printer goes offline, restart the router and printer only after checking the network status, then retry the model-specific setup. Re-enter the current password if the router settings changed. Install or update the driver from Epson’s official support source for your operating system.'] }
+        ],
+        faq: { question: 'Can the Epson L3150 print if it is connected to a different Wi-Fi network?', answer: 'Usually the computer and printer need to be reachable on the same local network. Check router isolation settings and the current printer connection details.' }
+      },
+      {
+        slug: 'epson-ecotank-printer-setup-first-print',
+        title: 'Epson EcoTank Setup Guide: First Print and Common Checks',
+        excerpt: 'Follow a careful Epson EcoTank setup checklist for unpacking, ink preparation, initial charging, paper loading, and print-quality verification.',
+        date: '2022-04-14',
+        category: 'EcoTank Setup',
+        sections: [
+          { heading: 'Follow the setup guide for your exact EcoTank model', paragraphs: ['Epson EcoTank printers share a refillable-tank design, but setup details differ by model. Remove shipping materials as instructed, place the unit level, and fill tanks only using the bottles and process specified in the model manual. Do not operate the printer before completing any required ink charging step.'] },
+          { heading: 'Load paper and complete the first print checks', paragraphs: ['Load supported paper with the guides aligned and complete the initial printer setup prompts. If the first page has missing lines or unusual color, print a nozzle check and follow the manual rather than repeatedly running cleaning cycles.'] },
+          { heading: 'Keep the printer ready for routine use', paragraphs: ['Use the printer periodically according to the manual, store paper in a dry place, and check ink levels through the printer’s recommended method. When an alert appears, capture the exact wording and model before searching for an Epson EcoTank troubleshooting or service solution.'] }
+        ],
+        faq: { question: 'Can I skip the Epson EcoTank initial ink charging step?', answer: 'No. Follow the setup sequence for your exact model. Initial ink charging prepares the ink delivery system and should not be skipped or improvised.' }
+      }
     ];
 
     const guides = [
@@ -907,6 +1036,49 @@
 
     function formatPrice(value) {
       return new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD' }).format(value);
+    }
+
+    function formatBlogDate(date) {
+      return new Intl.DateTimeFormat('en-US', {
+        year: 'numeric',
+        month: 'long',
+        day: 'numeric',
+        timeZone: 'UTC'
+      }).format(new Date(`${date}T00:00:00Z`));
+    }
+
+    function updatePageMetadata(route) {
+      const post = route === 'blog-article'
+        ? blogPosts.find((item) => item.slug === sanitizeRoute(window.location.hash).replace('/blog/', ''))
+        : null;
+      const title = post ? `${post.title} | Epson Centre` : 'Epson Centre | Epson Resetter & Adjustment Programs';
+      const description = post
+        ? post.excerpt
+        : 'Epson Centre offers Epson resetter programs, printer troubleshooting guides, adjustment software, and supportive resources for Epson printer maintenance.';
+      document.title = title;
+      document.querySelector('meta[name="description"]').setAttribute('content', description);
+      document.querySelector('meta[property="og:type"]').setAttribute('content', post ? 'article' : 'website');
+      document.querySelector('meta[property="og:title"]').setAttribute('content', title);
+      document.querySelector('meta[property="og:description"]').setAttribute('content', description);
+
+      const existingSchema = document.getElementById('blog-structured-data');
+      if (existingSchema) existingSchema.remove();
+      if (post) {
+        const schema = document.createElement('script');
+        schema.id = 'blog-structured-data';
+        schema.type = 'application/ld+json';
+        schema.textContent = JSON.stringify({
+          '@context': 'https://schema.org',
+          '@type': 'BlogPosting',
+          headline: post.title,
+          description: post.excerpt,
+          datePublished: post.date,
+          dateModified: '2026-10-08',
+          articleSection: post.category,
+          publisher: { '@type': 'Organization', name: 'Epson Centre' }
+        });
+        document.head.appendChild(schema);
+      }
     }
 
     function getCartCount() {
@@ -999,7 +1171,7 @@
           <div class="tag">${post.category}</div>
           <h3>${post.title}</h3>
           <p>${post.excerpt}</p>
-          <div class="article-date">${post.date}</div>
+          <time class="article-date" datetime="${post.date}">${formatBlogDate(post.date)}</time>
           <div class="card-actions">
             <a class="inline-button" href="#/blog/${post.slug}">Read More</a>
           </div>
@@ -1039,7 +1211,7 @@
                       <span>Model-specific programs</span>
                     </div>
                     <div class="hero-stat">
-                      <strong>4</strong>
+                      <strong>${blogPosts.length}</strong>
                       <span>Blog updates</span>
                     </div>
                     <div class="hero-stat">
@@ -1645,12 +1817,12 @@
             <p>Read practical support articles about Epson printers, maintenance reminders, waste ink counter awareness, and troubleshooting context.</p>
           </div>
           <div class="blog-grid">
-            ${blogPosts.map((post) => `
+            ${[...blogPosts].sort((a, b) => b.date.localeCompare(a.date)).map((post) => `
               <article class="card blog-card">
                 <div class="tag">${post.category}</div>
                 <h3>${post.title}</h3>
                 <p>${post.excerpt}</p>
-                <div class="article-date">${post.date}</div>
+                <time class="article-date" datetime="${post.date}">${formatBlogDate(post.date)}</time>
                 <div class="card-actions">
                   <a class="inline-button" href="#/blog/${post.slug}">Read More</a>
                 </div>
@@ -1670,17 +1842,19 @@
           <article class="panel" style="max-width: 900px; margin: 0 auto;">
             <div class="section-kicker">${post.category}</div>
             <h1>${post.title}</h1>
-            <div class="article-date">${post.date}</div>
+            <time class="article-date" datetime="${post.date}">${formatBlogDate(post.date)}</time>
             <p>${post.excerpt}</p>
-            <h3>Why this matters</h3>
-            <p class="text-muted">Epson printer support is usually strongest when users begin with the exact model number, current warning state, and recent maintenance history. That makes it easier to narrow the issue and review the right support path without overgeneralizing.</p>
-            <h3>What to review before acting</h3>
-            <ul class="big-list">
-              <li>Confirm the exact printer model and serial or unit details.</li>
-              <li>Check the current error message or maintenance alert.</li>
-              <li>Review any recent maintenance activity or printer setup changes.</li>
-              <li>Use official documentation and support notes as part of the final decision.</li>
-            </ul>
+            ${post.sections.map((section) => `
+              <section>
+                <h2>${section.heading}</h2>
+                ${section.paragraphs.map((paragraph) => `<p class="text-muted">${paragraph}</p>`).join('')}
+                ${section.bullets ? `<ul class="big-list">${section.bullets.map((item) => `<li>${item}</li>`).join('')}</ul>` : ''}
+              </section>
+            `).join('')}
+            <section class="faq-item" aria-label="Frequently asked question">
+              <h2>${post.faq.question}</h2>
+              <p>${post.faq.answer}</p>
+            </section>
             <div class="action-row">
               <a class="button" href="#/programs">Browse programs</a>
               <a class="secondary-button" href="#/troubleshooting">Troubleshooting guides</a>
@@ -2140,6 +2314,7 @@
           </div>
         </footer>
       `;
+      updatePageMetadata(route);
       if (route === 'order-status') pollOrderStatus();
     }
 
