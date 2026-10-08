@@ -27,10 +27,11 @@ The server refuses a checkout request for a product whose archive is missing or 
 | --- | --- |
 | `tx550w-sx510w.rar` | TX550W, SX510W |
 | `l3110-l3111.zip` | L3110, L3111 |
-| `l130-l220-l310-l360-l365.zip` | L130, L220, L310, L360, L365 |
+| `l130-l220-l310-l360-l365.rar` | L130, L220, L310, L360, L365 |
+| `l375-l475.rar` | L375 |
 | `l200.zip` | L200 |
 
-The L3110/L3111 package is taken from the unencrypted L3110-L3111-L3315 ZIP. The separate password-protected L3110/L3111 ZIP had the same file sizes and CRCs for all 13 files, so it is not needed for delivery. The TX550W/SX510W source was supplied as RAR, so its original RAR is attached as-is. Although the archive contains a `TX550` folder, the package has been confirmed to work with both TX550W and SX510W printers.
+The L3110/L3111 package is taken from the unencrypted L3110-L3111-L3315 ZIP. The separate password-protected L3110/L3111 ZIP had the same file sizes and CRCs for all 13 files, so it is not needed for delivery. The TX550W/SX510W source was supplied as RAR, so its original RAR is attached as-is. Although the archive contains a `TX550` folder, the package has been confirmed to work with both TX550W and SX510W printers. The newly supplied L130–L365 RAR replaces the earlier ZIP mapping for those five models. The L375–L475 package is mapped to the available L375 product; this site does not currently offer an L475 product page.
 
 Models without a shared package mapping still use `{product-slug}.zip`. The L3110-L3111-L3315 archive lists L3315, but this site does not currently offer an L3315 product page.
 

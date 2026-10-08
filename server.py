@@ -82,11 +82,12 @@ PRODUCT_ARCHIVES = {
     "epson-sx510w-adjustment-program": "tx550w-sx510w.rar",
     "epson-l3111-adjustment-program": "l3110-l3111.zip",
     "epson-l3110-adjustment-program": "l3110-l3111.zip",
-    "epson-l130-adjustment-program": "l130-l220-l310-l360-l365.zip",
-    "epson-l220-adjustment-program": "l130-l220-l310-l360-l365.zip",
-    "epson-l310-adjustment-program": "l130-l220-l310-l360-l365.zip",
-    "epson-l360-adjustment-program": "l130-l220-l310-l360-l365.zip",
-    "epson-l365-adjustment-program": "l130-l220-l310-l360-l365.zip",
+    "epson-l130-adjustment-program": "l130-l220-l310-l360-l365.rar",
+    "epson-l220-adjustment-program": "l130-l220-l310-l360-l365.rar",
+    "epson-l310-adjustment-program": "l130-l220-l310-l360-l365.rar",
+    "epson-l360-adjustment-program": "l130-l220-l310-l360-l365.rar",
+    "epson-l365-adjustment-program": "l130-l220-l310-l360-l365.rar",
+    "epson-l375-adjustment-program": "l375-l475.rar",
     "epson-l200-adjustment-program": "l200.zip",
 }
 
