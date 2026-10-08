@@ -443,6 +443,16 @@
     }
     .faq-item h4 { margin-bottom: 0.5rem; font-size: 1.05rem; }
     .faq-item p { margin: 0; color: var(--muted); }
+    .faq-item .action-row { margin-top: 0.85rem; }
+    .product-description-cta {
+      margin: 1.75rem 0;
+      padding: 1.4rem;
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      background: var(--paper-alt);
+    }
+    .product-description-cta h3 { margin-bottom: 0.4rem; }
+    .product-description-cta p { color: var(--muted); margin: 0; }
     .cta {
       background: linear-gradient(135deg, #1c1d22, #2d2d34);
       color: white;
@@ -926,6 +936,15 @@
         .map(([slug, qty]) => ({ product: getModelBySlug(slug), qty }))
         .filter((item) => item.product)
         .map((item) => ({ ...item.product, qty: item.qty }));
+    }
+
+    function renderProductActions(product) {
+      return `
+        <div class="action-row" role="group" aria-label="Purchase ${product.name}">
+          <button class="button" type="button" onclick="addToCart('${product.slug}')">Add to Cart</button>
+          <button class="secondary-button" type="button" onclick="addToCart('${product.slug}'); setRoute('/checkout')">Buy Now</button>
+        </div>
+      `;
     }
 
     function getCartSummary() {
@@ -1500,10 +1519,7 @@
                 <span class="price-tag">Digital product</span>
               </div>
 
-              <div class="action-row">
-                <button class="button" type="button" onclick="addToCart('${product.slug}')">Add to Cart</button>
-                <button class="secondary-button" type="button" onclick="addToCart('${product.slug}'); setRoute('/checkout')">Buy Now</button>
-              </div>
+              ${renderProductActions(product)}
 
               <h3>Overview of the adjustment program</h3>
               <p class="text-muted">This program is intended to support users looking for Epson printer maintenance review, service-related troubleshooting context, and model-specific information. It should be used alongside current printer status checks and relevant support notes.</p>
@@ -1555,6 +1571,12 @@
                 <div class="notice">These are original interface-style diagrams, not screenshots. The illustrated sequence is based on the published Epson L3110 walkthrough; menu names and support may differ by model or utility version. Confirm the adjustment program specifically supports Epson ${product.model}. Initializing a counter does not physically service the waste-ink pad: have the pad inspected and serviced or replaced as appropriate before resetting, then follow on-screen prompts and verify printer operation.</div>
               </section>
 
+              <section class="product-description-cta" aria-labelledby="product-description-cta-title">
+                <h3 id="product-description-cta-title">Ready to get the Epson ${product.model} program?</h3>
+                <p>Add it to your cart to keep browsing, or buy now to continue directly to checkout.</p>
+                ${renderProductActions(product)}
+              </section>
+
               <h3>Frequently asked questions about the ${product.model}</h3>
               <div class="faq-grid" style="grid-template-columns:1fr; margin-top:1rem;">
                 ${product.faq.map((item) => `
@@ -1563,6 +1585,11 @@
                     <p>${item.includes('?') ? item.split('?').slice(1).join('?').replace(/^\s*/, '') : item}</p>
                   </div>
                 `).join('')}
+                <div class="faq-item">
+                  <h4>How can I order the Epson ${product.model} program?</h4>
+                  <p>Choose Buy Now to go straight to checkout, or Add to Cart if you want to keep browsing. Checkout collects your delivery email; when the matching product archive and payment service are configured, the ZIP is sent after payment is confirmed.</p>
+                  ${renderProductActions(product)}
+                </div>
               </div>
             </article>
 
